@@ -1,0 +1,340 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("stili-custom.css");
+/*Slider*/
+.slider div#carousel_fade.carousel.slide.carousel-fade div.carousel-inner div.item div.carousel-caption {
+	margin:0px;
+	position:absolute;
+	bottom:10px;
+	left:20px;
+	padding:0px;
+	text-align:left;
+	width:40%;
+}
+.slider div#carousel_fade.carousel.slide.carousel-fade div.carousel-inner div.item div.carousel-caption h3 {
+	margin-top:10px;
+}
+/*Fine Slider*/
+.scheda-prodotto {
+	margin-top: 10px;
+}
+.specifiche h1 {
+	margin-top: 0px;
+	font-size: 180%;
+}
+.specifiche h2 {
+	font-size: 110%;
+	background: #979797;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	color: #fff;
+	padding: 4px;
+	text-transform: uppercase;
+}
+/*FORM*/
+form.form-horizontal {
+	font-size: 14px;
+}
+form.form-horizontal input, form.form-horizontal select {
+	height: 25px;
+	padding: 3px;
+}
+.specifiche form.form-horizontal fieldset div.form-group {
+	width: 100%;
+	margin: 3px 0px;
+	padding: 5px 0px;
+	background: #E6E6E6;
+}
+.specifiche .form-horizontal .control-label {
+	text-align: left;
+}
+.specifiche label {
+	font-weight: 400;
+	color: #4d4d4d;
+}
+.specifiche form.form-horizontal fieldset div.form-group.checkbox-image, .specifiche form.form-horizontal fieldset div.form-group.consegna, .specifiche form.form-horizontal fieldset div.form-group.opzioni, .specifiche form.form-horizontal fieldset div.form-group.riepilogo {
+	background: #fff;
+	border: 2px solid #e6e6e6;
+	padding-top: 0px;
+}
+.specifiche label.titolo {
+	font-weight: 400;
+	background: #E6E6E6;
+	color: #4d4d4d;
+	width: 100%;
+	padding: 3px;
+}
+.specifiche form.form-horizontal fieldset div.form-group label {
+	padding-top: 0px;
+}
+.checkbox-image div.col-lg-12, .consegna div.col-lg-12, .opzioni div.col-lg-12, .checkbox-image div.col-sm-12, .consegna div.col-sm-12, .opzioni div.col-sm-12, .checkbox-image div.col-md-12, .consegna div.col-md-12, .opzioni div.col-md-12 {
+	padding: 0px;
+}
+.checkbox-image label.checkbox-inline img {
+	width: 83px;
+}
+.checkbox-image label.checkbox-inline:active img {
+	border: 3px solid #3B99FC;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-o-border-radius: 50px;
+}
+.consegna table tr td {
+	width: 20%;
+	box-sizing: border-box;
+	line-height: 18px;
+}
+.consegna table tr:nth-child(1) td:first-child img {
+	margin-top: 18px;
+}
+.data {
+}
+.giorno-sett, .mese {
+	font-weight: 200;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.giorno {
+	font-weight: bold;
+	font-size: 22px;
+}
+.consegna div.table-responsive.text-center table.table tbody tr td label.checkbox-inline {
+	padding: 0px;
+}
+.opzioni h5 {
+	margin-top: 0px;
+	margin-bottom: 3px;
+}
+.opzioni p {
+	font-size: 12px;
+	margin: 0px;
+}
+.opzioni p span {
+	color: #3B99FC;
+}
+.opzioni .popover-content {
+	widht: 200px;
+	box-sizing: border-box;
+}
+.opzioni .popover-content p {
+	width: 240px;
+}
+.opzioni div.col-lg-3.col-lg-offset-1 select#verifica-file.form-control, .opzioni div.col-md-3.col-md-offset-1 select#verifica-file.form-control, .opzioni div.col-sm-3.col-sm-offset-1 select#verifica-file.form-control {
+	margin-top: 10px;
+}
+.consegna div.col-lg-12 span.glyphicon.glyphicon-asterisk, .consegna div.col-md-12 span.glyphicon.glyphicon-asterisk, .consegna div.col-sm-12 span.glyphicon.glyphicon-asterisk {
+	color: #C00;
+	font-size: 9px;
+}
+.consegna div.col-lg-12 p, .consegna div.col-md-12 p, .consegna div.col-sm-12 p {
+	font-size: 10px;
+	line-height: 12px;
+	margin-bottom: 0px;
+}
+.riepilogo div.col-lg-12 p:first-child, .riepilogo div.col-md-12 p:first-child, .riepilogo div.col-sm-12 p:first-child {
+	margin-top: 3px;
+}
+.riepilogo div.col-lg-12 p, .riepilogo div.col-md-12 p, .riepilogo div.col-sm-12 p {
+	font-size: 12px;
+	line-height: 13px;
+}
+.riepilogo div.col-lg-12 p:last-child, .riepilogo div.col-md-12 p:last-child, .riepilogo div.col-sm-12 p:last-child {
+	margin-bottom: 0px;
+}
+form.form-horizontal fieldset div.form-group.submit-carrello {
+	padding: 0px;
+}
+form.form-horizontal fieldset button.col-lg-12, form.form-horizontal fieldset button.col-md-12, form.form-horizontal fieldset button.col-sm-12 {
+	border: 0 none;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	background: #ffc040;
+	text-shadow: -1px 0px 5px #333;
+}
+form.form-horizontal fieldset button.col-lg-12:hover, form.form-horizontal fieldset button.col-md-12:hover, form.form-horizontal fieldset button.col-sm-12:hover {
+	border: 0 none;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	background: #08B24F;
+	text-shadow: -1px 0px 5px #333;
+}
+/*Fine form*/
+/*colonna box carrello*/
+div.carrello-box {
+	min-height: 200px;
+	padding:0px;	
+	color:#333;
+}
+div.carrello-box h4 {
+	font-weight: 500;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 100%;
+	box-sizing:border-box;
+	padding:3px;
+	margin:0px;
+}
+div.schede-tecniche-template, div.prezzo-ordine, div.prezzo-preventivo {
+	padding: 0px;
+	margin: 3px 0px;
+	color: #fff;
+}
+div.schede-tecniche-template {
+	margin-top:0px;
+}
+div.schede-tecniche-template table {
+	margin-bottom:0px;
+}
+.schede-tecniche-template table.table tbody tr td a {
+	text-align:left;
+	padding-left:60px;
+	padding-top:15px;
+	text-transform:uppercase;
+	box-sizing:border-box;
+}
+div.schede-tecniche-template h4 {
+	background: /*#6CF*/#357ebd;
+}
+div.prezzo-ordine h4 {
+	background:/*#6C3*/#08B24F;
+}
+div.prezzo-preventivo h4 {
+	background:/*#FC0*/#ffc040;
+}
+.schede-tecniche-template .scheda-prodotto {
+	background:url(../images/icon-scheda.png) no-repeat left center;
+	height:50px;
+}
+.schede-tecniche-template .pdf-template {
+	background:url(../images/icon-pdf.png) no-repeat left center;
+	height:50px;
+}
+.schede-tecniche-template .scheda-prodotto:hover {
+	background:url(../images/icon-download.png) no-repeat left center;
+	height:50px;
+	text-decoration:none;
+	color:#FFC040;
+}
+.schede-tecniche-template .pdf-template:hover {
+	background:url(../images/icon-download.png) no-repeat left center;
+	height:50px;
+	text-decoration:none;
+	color:#FFC040;
+}
+.carrello-box table {
+	color:#333;
+}
+.carrello-box .prezzo-ordine table tbody tr td {
+	background:#DBEEE0;
+}
+.carrello-box .prezzo-preventivo table tbody tr td {
+	background:#FEEFD0;
+}
+.carrello-box table tbody tr.totale {
+	border-top:3px solid #fff;
+	font-weight:bold;
+}
+.carrello-box table tbody tr.consegna {
+	font-weight:bold;
+}
+.carrello-box table tbody tr td:first-child {
+	text-align:left;
+}
+.carrello-box table tbody tr td {
+	text-align:center;
+}
+.carrello-box table tbody tr td:last-child {
+	text-align:right;
+}
+/*Bottone visualizzazione carrello*/
+.carrello-box div.prezzo-ordine button.visualizza {
+	box-sizing:border-box;
+	border:4px solid #DBEEE0;
+	text-transform:uppercase;
+	background:#08B24F;
+}
+.carrello-box div.prezzo-ordine button.visualizza:hover {
+	box-sizing:border-box;
+	border:4px solid #DBEEE0;
+	text-transform:uppercase;
+	background:#00CC66;
+	box-shadow:inset;
+}
+.carrello-box div.prezzo-preventivo button.aggiungi-prodotto {
+	box-sizing:border-box;
+	border:4px solid #FEEFD0;
+	text-transform:uppercase;
+	background:#08B24F;
+	font-size:12px;
+}
+.carrello-box div.prezzo-preventivo button.aggiungi-prodotto:hover {
+	box-sizing:border-box;
+	border:4px solid #FEEFD0;
+	text-transform:uppercase;
+	background:#ffc040;
+	box-shadow:inset;
+	font-size:12px;
+}
+/*Fine Bottone visualizzazione carrello*/
+/*Accordion Lavorazioni*/
+.prezzo-ordine div.modal.fade.in div.modal-dialog div.modal-content div.modal-body div#accordion.panel-group {
+	margin-bottom:10px;
+}
+.intestazione-lavorazioni {
+	color:#333;
+	text-transform:uppercase;
+	font-weight:400;
+	padding:0px 0px 10px 0px;
+	border-bottom:1px solid #333;
+	margin-bottom:10px;
+}
+.lavorazione div.panel-heading div.panel-title a {
+	font-size:90%;
+	font-weight:normal;
+}
+.lavorazione div.panel-heading div.panel-title a div {
+	background:#08B24F;
+	padding:5px 2px;
+	color:#fff;
+}
+.lavorazione div.panel-heading {
+	padding:0px;
+	
+}
+.lavorazione div.panel-collapse.collapse div.panel-body, .specifica {
+	padding:0px;
+}
+.specifica {
+	color:#666;
+}
+.specifica div {
+	paddig:4px;
+	border-bottom:3px solid #fff;
+	background:#DBEEE0;
+}
+.specifica div:last-child {
+	font-weight:500;
+}
+.lavorazione div.panel-collapse.collapse div.panel-body div.specifica:last-child div{
+	border-bottom:0px;
+}
+.costo-totale-ordine {
+	border-top:1px solid #333;
+	padding:10px 0px;
+}
+.prezzo-ordine  div.modal-dialog div.modal-content div.modal-body div.costo-totale-ordine div.col-lg-4.col-md-4.col-sm-4.col-sm-offset-8.col-md-offset-8.col-lg-offset-8 {
+	padding:0px;
+	color:#333;
+}
+.totale-ordini {
+	margin:15px 0px;
+}
+.prezzo-ordine div#myModal5.modal.fade.in div.modal-dialog div.modal-content div.modal-body div.col-lg-5.col-md-5.col-sm-5.col-sm-offset-7.col-md-offset-7.col-lg-offset-7 {
+}
+/*Fine Accordion Lavorazioni*/
+	

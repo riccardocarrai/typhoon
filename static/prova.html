@@ -1,0 +1,11 @@
+{% extends "doc_base.html" %}
+{% load staticfiles %}
+
+{% block mainblock %}
+<form class="form-inline" role="form" action="/registrazione/validate_reg/" method="POST">{% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input type="submit" value="registrati">
+ </form>
+{%  endblock %}

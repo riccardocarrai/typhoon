@@ -1,0 +1,83 @@
+        <!-- Blocco pulsanti adv -->
+        <div class="col-md-4 descr-prodotto">
+        	<h1>Nome Prodotto</h1>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie quam eget lorem mattis laoreet eget in magna. Aenean quis lobortis libero, nec blandit justo.</p>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie quam eget lorem mattis laoreet eget in magna. Aenean quis lobortis libero, nec blandit justo.</p>
+            <h5>Caratteristiche:</h5>
+            <ul>
+            	<li>Quisque eget diam quis nulla bibendum mattis.</li>
+            	<li>Pellentesque laoreet lorem in gravida rhoncus.</li>
+            	<li>Nam in turpis convallis, dapibus nibh ut, aliquam nibh.</li>
+            </ul>
+        </div>
+        <!-- Fine blocco pulsanti adv -->
+
+
+
+/*BLOCCO SLIDER*/
+#carousel_fade {
+	background:#CCCBC0;
+}
+ div.col-md-8.slider{
+	 padding:0px;
+ }
+.col-md-8.slider div#carousel_fade.carousel.slide.carousel-fade,  
+div.col-md-8.slider div#carousel_fade.carousel.slide.carousel-fade div.carousel-inner,
+div.col-md-8.slider div#carousel_fade.carousel.slide.carousel-fade div.carousel-inner div.item,
+div.col-md-8.slider div#carousel_fade.carousel.slide.carousel-fade div.carousel-inner div.item img {
+	height:300px;
+}
+.carousel.carousel-fade .item {
+	-webkit-transition: opacity 0.5s ease-in-out;
+	-moz-transition: opacity 0.5s ease-in-out;
+	-ms-transition: opacity 0.5s ease-in-out;
+	-o-transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s ease-in-out;
+	opacity:0;
+}
+
+.carousel.carousel-fade .active.item {
+	opacity:1;
+}
+
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+	left: 0;
+	z-index: 200000;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.carousel.carousel-fade .next,
+.carousel.carousel-fade .prev {
+	left: 0;
+	z-index: 100000000;
+}
+
+.carousel.carousel-fade .carousel-control {
+	z-index: 3000000000000;
+}
+.slider {
+	height:300px;
+}
+div.row.main-content div.col-md-4.descr-prodotto {
+	height:240px;
+	box-sizing:border-box;
+}
+.descr-prodotto h1 {
+	margin-top:0px;
+	font-size:22px;
+}
+.descr-prodotto p {
+	font-size:12px;
+	margin-bottom:3px;
+}
+.descr-prodotto ul {
+	padding-left:15px;
+}
+.descr-prodotto ul li {
+	font-size:12px;
+	line-height:14px;
+	font-weight:500;
+}
+/*FINE BLOCCO SLIDER*/

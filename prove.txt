@@ -1,0 +1,31 @@
+ jsData=[]
+       jsMap={}
+       valD=[]
+       cI=mapCamp.count()
+       for i in mapCamp:
+            if(jsMap):
+                if(jsMap['id']==i['figlio_id']):
+                    valD.append(str(i['valore_figlio']))
+                    if(cI==1):
+                        jsMap['valori']=valD
+                        jsData.append(jsMap)
+
+                else:
+                    jsMap['valori']=valD
+                    jsData.append(jsMap)
+                    jsMap={}
+                    valD=[]
+                    jsMap['id']=i['figlio_id']
+                    valD.append(str(i['valore_figlio']))
+                    if(cI==1):
+                        jsMap['valori']=valD
+                        jsData.append(jsMap)
+
+            else:
+                jsMap['id']=i['figlio_id']
+                valD.append(str(i['valore_figlio']))
+                if(cI==1):
+                        jsMap['valori']=valD
+                        jsData.append(jsMap)
+                #jsMap['valori']=valD
+            cI=cI-1

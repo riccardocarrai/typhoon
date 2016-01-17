@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("stili-custom.css");
+
+div.container div.row.main-content div.col-lg-3.col-md-3.col-sm-3.main-menu {
+	margin-bottom:20px;
+}
+div.container div.row.main-content div.row.main-content.newsletter {
+	margin-bottom:0px;
+}

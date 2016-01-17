@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("stili-custom.css");
+
+.form-registrazione h4 {
+	padding:5px;
+	background:#AC1638;
+	color:#fff;
+}
+.form-registrazione h5 {
+	padding:2px;
+	background:#ffc040;
+	color:#fff;
+}
+.form-registrazione form.form-inline div.col-lg-12.col-md-12.col-sm-12 {
+	padding:0px;
+}
+.disclaimer {
+	height:150px;
+	width:100%;
+	font-size:11px;
+	overflow:scroll;
+	padding:0px;
+	margin-bottom:10px;
+}
+.form-registrazione button[type=submit] {
+	padding:10px;
+	font-weight:bold;
+	text-transform:uppercase;
+	box-sizing:border-box;
+	background:#08B24F;
+	color:#fff;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+}
+.form-registrazione button[type=submit]:hover {
+	padding:10px;
+	box-sizing:border-box;
+	background:#00CC66;
+	color:#fff;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+}
+/*PAGINA AREA PERSONALE*/
+.area-personale {
+	margin-top:20px;
+}
+.area-personale div.col-lg-3.col-md-3.col-sm-3 ul#myTab.nav.nav-pills.nav-stacked li {
+	background:#428BCA;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+}
+.area-personale div.col-lg-3.col-md-3.col-sm-3 ul#myTab.nav.nav-pills.nav-stacked li.active a{
+	background:#08B24F;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+}
+.area-personale div.col-lg-3.col-md-3.col-sm-3 ul#myTab.nav.nav-pills.nav-stacked li a{
+	color:#fff;
+}
+.area-personale div.col-lg-3.col-md-3.col-sm-3 ul#myTab.nav.nav-pills.nav-stacked li a:hover{
+	color:#585856;
+}
+.area-personale div.col-lg-3.col-md-3.col-sm-3 ul#myTab.nav.nav-pills.nav-stacked li.active a:hover{
+	color:#fff;
+}
+/*area promozione personale*/
+.personal-promotion img{
+	width:100%;
+	height:100%;
+}
+/*area promozione su acquisti*/
+.promotion-on-shop {
+	margin-top:10px;
+}
+
+.promotion-on-shop div.avanzamento{
+	padding:0px;
+	position:relative;
+	border-radius:0px;
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	-o-border-radius:0px;
+	border-right:5px solid #FFD52D;
+}
+.avanzamento div.progress.progress-striped.active .progress-bar {
+    background-color: #f0ad4e;
+}
+.star {
+	position:absolute;
+	right:0;
+	bottom:-32px;
+	min-width:32px;
+	min-height:32px;
+}
+.one-star {
+	background:url(../images/icon-one-star.png) no-repeat center center;
+	right:-19px;
+}
+.two-star {
+	background:url(../images/icon-two-star.png) no-repeat center center;
+	right:-33px;
+	min-width:62px;
+}
+.three-star {
+	background:url(../images/icon-three-star.png) no-repeat center center;
+	right:-3px;
+	min-width:92px;
+}

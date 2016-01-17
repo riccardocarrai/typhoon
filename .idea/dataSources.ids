@@ -1,0 +1,1289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="f347a082-1897-4bee-aabb-9cf75af4161a">
+    <database-info product="MySQL" version="5.5.46-0ubuntu0.14.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="typhoon"/>
+    <table name="anagrafiche_calendariofestivita" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_campo_rubrica" schema="" catalog="typhoon" type="TABLE">
+      <column name="campo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="campo"/>
+    </table>
+    <table name="anagrafiche_cap" schema="" catalog="typhoon" type="TABLE">
+      <column name="cap" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cap"/>
+    </table>
+    <table name="anagrafiche_cliente" schema="" catalog="typhoon" type="TABLE">
+      <column name="mycontact_ptr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="mycontact_ptr_id"/>
+      <index name="user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="anagrafiche_contatto" schema="" catalog="typhoon" type="TABLE">
+      <column name="mycontact_ptr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cognome" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="mycontact_ptr_id"/>
+    </table>
+    <table name="anagrafiche_continente" schema="" catalog="typhoon" type="TABLE">
+      <column name="continente" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="continente"/>
+    </table>
+    <table name="anagrafiche_giornifestivi" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="giorno" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mese" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="festivita" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_impiegati" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ruolo" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="costo_orario" sqlType="DECIMAL" precision="4" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user_id" unique="true" columns="user_id"/>
+    </table>
+    <table name="anagrafiche_impiegati_rubrica" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="impiegati_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rubrica_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="impiegati_id" unique="true" columns="impiegati_id,rubrica_id"/>
+      <index name="anagrafiche_impiegati_rubrica_332db149" unique="false" columns="impiegati_id"/>
+      <index name="anagrafiche_impiegati_rubrica_8b8d8673" unique="false" columns="rubrica_id"/>
+    </table>
+    <table name="anagrafiche_indirizzo" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="indirizzo" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="citta" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cap" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="provincia" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nazione" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_indirizzo_mycontact" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="riferimento" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indirizzo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="contact_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipo" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="anagrafiche_indirizzo_mycontact_6d82f13d" unique="false" columns="contact_id"/>
+      <index name="anagrafiche_indirizzo_mycontact_af8b965a" unique="false" columns="indirizzo_id"/>
+    </table>
+    <table name="anagrafiche_localita" schema="" catalog="typhoon" type="TABLE">
+      <column name="comune" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="provincia_id" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="comune"/>
+      <index name="anagrafiche_localita_54bf7e76" unique="false" columns="provincia_id"/>
+    </table>
+    <table name="anagrafiche_localita_cap" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="localita_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cap_id" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="localita_id" unique="true" columns="localita_id,cap_id"/>
+      <index name="anagrafiche_localita_cap_2a524043" unique="false" columns="cap_id"/>
+      <index name="anagrafiche_localita_cap_8b7ef576" unique="false" columns="localita_id"/>
+    </table>
+    <table name="anagrafiche_macchina" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="funzione" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_mycontact" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="denominazione" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="societa" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="p_iva" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cod_fiscale" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cellulare" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fax" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="privacy" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="newsletter" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="data_inscrizione" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_paese" schema="" catalog="typhoon" type="TABLE">
+      <column name="sigla_paese" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="paese" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="continente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prefisso_internazionale" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sigla_paese"/>
+      <index name="anagrafiche_paese_2b06715e" unique="false" columns="continente_id"/>
+    </table>
+    <table name="anagrafiche_provincia" schema="" catalog="typhoon" type="TABLE">
+      <column name="sigla_provincia" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="provincia" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="stato_appartenenza_id" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sigla_provincia"/>
+      <index name="anagrafiche_provincia_c3bfa4a2" unique="false" columns="stato_appartenenza_id"/>
+    </table>
+    <table name="anagrafiche_referente" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="referente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="azienda_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="funzione" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="anagrafiche_referente_45522041" unique="false" columns="azienda_id"/>
+      <index name="anagrafiche_referente_99f2f3d9" unique="false" columns="referente_id"/>
+    </table>
+    <table name="anagrafiche_rubrica" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="anagrafiche_tipo_societa" schema="" catalog="typhoon" type="TABLE">
+      <column name="sigla_societa" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="paese_riferimento_id" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sigla_societa"/>
+      <index name="anagrafiche_tipo_societa_c06cb1d2" unique="false" columns="paese_riferimento_id"/>
+    </table>
+    <table name="anagrafiche_voce_rubrica" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="campo_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rubrica_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dato" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="anagrafiche_voce_rubrica_8b8d8673" unique="false" columns="rubrica_id"/>
+      <index name="anagrafiche_voce_rubrica_e40f192a" unique="false" columns="campo_id"/>
+    </table>
+    <table name="auth_group" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="group_id" unique="true" columns="group_id,permission_id"/>
+      <index name="auth_group_permissions_0e939a4f" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_8373b171" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="content_type_id" unique="true" columns="content_type_id,codename"/>
+      <index name="auth_permission_417f1b1c" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user_id" unique="true" columns="user_id,group_id"/>
+      <index name="auth_user_groups_0e939a4f" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_e8701ad4" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user_id" unique="true" columns="user_id,permission_id"/>
+      <index name="auth_user_user_permissions_8373b171" unique="false" columns="permission_id"/>
+      <index name="auth_user_user_permissions_e8701ad4" unique="false" columns="user_id"/>
+    </table>
+    <table name="catalogo_campo" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titolo" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_campo_d3c0c18a" unique="false" columns="tipo_id"/>
+    </table>
+    <table name="catalogo_categoria" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="short_description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="small_image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="in_evidenza" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="catalogo_categoria_immagini" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="immagini_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="categoria_id" unique="true" columns="categoria_id,immagini_id"/>
+      <index name="catalogo_categoria_immagini_5fbc190e" unique="false" columns="immagini_id"/>
+      <index name="catalogo_categoria_immagini_daf3833b" unique="false" columns="categoria_id"/>
+    </table>
+    <table name="catalogo_categoria_prodotti" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="prodotto_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="categoria_id" unique="true" columns="categoria_id,prodotto_id"/>
+      <index name="catalogo_categoria_prodotti_d084e3b8" unique="false" columns="prodotto_id"/>
+      <index name="catalogo_categoria_prodotti_daf3833b" unique="false" columns="categoria_id"/>
+    </table>
+    <table name="catalogo_immagini" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titolo" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Oggetto_id" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="altezza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="larghezza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="thumbnail" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_immagini_417f1b1c" unique="false" columns="content_type_id"/>
+      <index name="catalogo_immagini_6669cbcc" unique="false" columns="Oggetto_id"/>
+    </table>
+    <table name="catalogo_immaginicampo" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="valori_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="riferimento_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="rif_componente_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_immaginicampo_4833b4c7" unique="false" columns="rif_componente_id"/>
+      <index name="catalogo_immaginicampo_bda473dc" unique="false" columns="riferimento_id"/>
+      <index name="catalogo_immaginicampo_e40f192a" unique="false" columns="campo_id"/>
+      <index name="catalogo_immaginicampo_f4616a07" unique="false" columns="valori_id"/>
+    </table>
+    <table name="catalogo_mappacampi" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valore_padre_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="figlio_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valore_figlio_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_mappacampi_61c2d19b" unique="false" columns="valore_figlio_id"/>
+      <index name="catalogo_mappacampi_bc3cc059" unique="false" columns="figlio_id"/>
+      <index name="catalogo_mappacampi_e40f192a" unique="false" columns="campo_id"/>
+      <index name="catalogo_mappacampi_f17a5773" unique="false" columns="valore_padre_id"/>
+    </table>
+    <table name="catalogo_media" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titolo" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="didascalia" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="pagina" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="catalogo_ordine" schema="" catalog="typhoon" type="TABLE">
+      <column name="Nr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cliente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="righe_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Nr"/>
+      <index name="catalogo_ordine_4a860110" unique="false" columns="cliente_id"/>
+      <index name="catalogo_ordine_a92bd914" unique="false" columns="righe_id"/>
+    </table>
+    <table name="catalogo_riferimenti" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="riferimento" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_riferimenti_417f1b1c" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="catalogo_rigaordine" schema="" catalog="typhoon" type="TABLE">
+      <column name="nr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="articolo_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data_consegna" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="nr"/>
+      <index name="catalogo_rigaordine_f4e3cac9" unique="false" columns="articolo_id"/>
+    </table>
+    <table name="catalogo_tipocampo" schema="" catalog="typhoon" type="TABLE">
+      <column name="tipo" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="html" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="tipo"/>
+    </table>
+    <table name="catalogo_tipooggetto" schema="" catalog="typhoon" type="TABLE">
+      <column name="oggetto" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="oggetto"/>
+    </table>
+    <table name="catalogo_valori" schema="" catalog="typhoon" type="TABLE">
+      <column name="valore" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="valore"/>
+    </table>
+    <table name="catalogo_valoricampo" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="immagine_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valori_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rif_componente_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="catalogo_valoricampo_42f89e1a" unique="false" columns="immagine_id"/>
+      <index name="catalogo_valoricampo_4833b4c7" unique="false" columns="rif_componente_id"/>
+      <index name="catalogo_valoricampo_e40f192a" unique="false" columns="campo_id"/>
+      <index name="catalogo_valoricampo_f4616a07" unique="false" columns="valori_id"/>
+    </table>
+    <table name="catalogo_valoricampo_riferimento" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="valoricampo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="riferimenti_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="valoricampo_id" unique="true" columns="valoricampo_id,riferimenti_id"/>
+      <index name="catalogo_valoricampo_riferimento_5a35dfaa" unique="false" columns="riferimenti_id"/>
+      <index name="catalogo_valoricampo_riferimento_6261b0d2" unique="false" columns="valoricampo_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="django_admin_log_417f1b1c" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_e8701ad4" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="django_content_type_app_label_45f3b1d93ec8c61c_uniq" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="typhoon" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_de54fa62" unique="false" columns="expire_date"/>
+    </table>
+    <table name="prodotti_accessori" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="from_componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="to_componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_accessori_e319419f" unique="false" columns="from_componente_id"/>
+      <index name="prodotti_accessori_f2faefe6" unique="false" columns="to_componente_id"/>
+    </table>
+    <table name="prodotti_calcoloum" schema="" catalog="typhoon" type="TABLE">
+      <column name="nome" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="nome"/>
+    </table>
+    <table name="prodotti_campicomponente" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ordine_visualizzazione" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="padri" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="figli" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_campicomponente_e40f192a" unique="false" columns="campo_id"/>
+      <index name="prodotti_campicomponente_eabf333d" unique="false" columns="componente_id"/>
+    </table>
+    <table name="prodotti_caratteristica" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="specifica_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valore" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_caratteristica_0921be8e" unique="false" columns="specifica_id"/>
+      <index name="prodotti_caratteristica_417f1b1c" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="prodotti_componente" schema="" catalog="typhoon" type="TABLE">
+      <column name="nome" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="nome"/>
+    </table>
+    <table name="prodotti_conversione" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="um_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="specifica_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fatt_conversione" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_conversione_0921be8e" unique="false" columns="specifica_id"/>
+      <index name="prodotti_conversione_45762c6b" unique="false" columns="um_id"/>
+    </table>
+    <table name="prodotti_formati" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_formati_31dde92b" unique="false" columns="spec2_id"/>
+      <index name="prodotti_formati_80507aee" unique="false" columns="spec1_id"/>
+    </table>
+    <table name="prodotti_giorniaumento" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nr_gironi_consegna" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="aumento_percentuale" sqlType="DECIMAL" precision="4" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_giorniaumento_417f1b1c" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="prodotti_lavorazione" schema="" catalog="typhoon" type="TABLE">
+      <column name="nome" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="costo" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
+      <column name="UM_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="macchina_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="addetti" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="nome"/>
+      <index name="prodotti_lavorazione_29785354" unique="false" columns="UM_id"/>
+      <index name="prodotti_lavorazione_f662b9ce" unique="false" columns="macchina_id"/>
+    </table>
+    <table name="prodotti_lavorazionecomponente" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="lavorazione_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipoLavorazione" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prezzoVendita" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
+      <column name="calcolo_prezzo_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_campo" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_lavorazionecomponente_31dde92b" unique="false" columns="spec2_id"/>
+      <index name="prodotti_lavorazionecomponente_7cbe11a1" unique="false" columns="calcolo_prezzo_id"/>
+      <index name="prodotti_lavorazionecomponente_80507aee" unique="false" columns="spec1_id"/>
+      <index name="prodotti_lavorazionecomponente_dec3b227" unique="false" columns="lavorazione_id"/>
+      <index name="prodotti_lavorazionecomponente_e40f192a" unique="false" columns="campo_id"/>
+      <index name="prodotti_lavorazionecomponente_eabf333d" unique="false" columns="componente_id"/>
+    </table>
+    <table name="prodotti_prodottiimage" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Oggetto_id" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="altezza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="larghezza" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_prodottiimage_417f1b1c" unique="false" columns="content_type_id"/>
+      <index name="prodotti_prodottiimage_6669cbcc" unique="false" columns="Oggetto_id"/>
+    </table>
+    <table name="prodotti_prodotto" schema="" catalog="typhoon" type="TABLE">
+      <column name="prodotto" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="short_description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="sconto_globale" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="prodotto_new" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="in_evidenza" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="prodotto"/>
+    </table>
+    <table name="prodotti_prodotto_Componenti" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="prodotto_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotto_id" unique="true" columns="prodotto_id,componente_id"/>
+      <index name="prodotti_prodotto_Componenti_d084e3b8" unique="false" columns="prodotto_id"/>
+      <index name="prodotti_prodotto_Componenti_eabf333d" unique="false" columns="componente_id"/>
+    </table>
+    <table name="prodotti_scontoformato" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="formato_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sconto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="default" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_scontoformato_7fa7f4f4" unique="false" columns="formato_id"/>
+      <index name="prodotti_scontoformato_e40f192a" unique="false" columns="campo_id"/>
+      <index name="prodotti_scontoformato_eabf333d" unique="false" columns="componente_id"/>
+    </table>
+    <table name="prodotti_specifica" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="specifica" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="UM_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_specifica_29785354" unique="false" columns="UM_id"/>
+    </table>
+    <table name="prodotti_specifica_campo" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="specifica_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="specifica_id" unique="true" columns="specifica_id,campo_id"/>
+      <index name="prodotti_specifica_campo_0921be8e" unique="false" columns="specifica_id"/>
+      <index name="prodotti_specifica_campo_e40f192a" unique="false" columns="campo_id"/>
+    </table>
+    <table name="prodotti_um" schema="" catalog="typhoon" type="TABLE">
+      <column name="UM" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="UM"/>
+    </table>
+    <table name="prodotti_variante" schema="" catalog="typhoon" type="TABLE">
+      <column name="nome" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="costo" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
+      <column name="UM_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="nome"/>
+      <index name="prodotti_variante_29785354" unique="false" columns="UM_id"/>
+    </table>
+    <table name="prodotti_variantecomponente" schema="" catalog="typhoon" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="variante_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="prezzoVendita" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
+      <column name="calcolo_prezzo_id" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="campo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valore_campo" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="default" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="prodotti_variantecomponente_31dde92b" unique="false" columns="spec2_id"/>
+      <index name="prodotti_variantecomponente_69bfd2f0" unique="false" columns="variante_id"/>
+      <index name="prodotti_variantecomponente_7cbe11a1" unique="false" columns="calcolo_prezzo_id"/>
+      <index name="prodotti_variantecomponente_80507aee" unique="false" columns="spec1_id"/>
+      <index name="prodotti_variantecomponente_e40f192a" unique="false" columns="campo_id"/>
+      <index name="prodotti_variantecomponente_eabf333d" unique="false" columns="componente_id"/>
+    </table>
+  </data-source>
+  <data-source name="SQLite -typhoon" uuid="9be78a9c-8e91-4461-9f37-4636e20d36f5">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <schema name="" catalog=""/>
+    <table name="anagrafiche_calendariofestivita" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="anagrafiche_campo_rubrica" schema="" catalog="" type="TABLE">
+      <column name="campo" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="campo"/>
+      <exported-key name="#FAKE_anagrafiche_voce_rubrica_2" table="anagrafiche_voce_rubrica" schema="" catalog="" columns="campo_id"/>
+    </table>
+    <table name="anagrafiche_cap" schema="" catalog="" type="TABLE">
+      <column name="cap" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="cap"/>
+      <exported-key name="#FAKE_anagrafiche_localita_cap_1" table="anagrafiche_localita_cap" schema="" catalog="" columns="cap_id"/>
+    </table>
+    <table name="anagrafiche_cliente" schema="" catalog="" type="TABLE">
+      <column name="mycontact_ptr_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="mycontact_ptr_id"/>
+      <foreign-key name="#FAKE_anagrafiche_cliente_1" columns="mycontact_ptr_id" ref-table="anagrafiche_mycontact" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
+    <table name="anagrafiche_contatto" schema="" catalog="" type="TABLE">
+      <column name="mycontact_ptr_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cognome" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR(254)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="mycontact_ptr_id"/>
+      <foreign-key name="#FAKE_anagrafiche_contatto_1" columns="mycontact_ptr_id" ref-table="anagrafiche_mycontact" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_catalogo_ordine_2" table="catalogo_ordine" schema="" catalog="" columns="cliente_id"/>
+    </table>
+    <table name="anagrafiche_continente" schema="" catalog="" type="TABLE">
+      <column name="continente" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="continente"/>
+      <exported-key name="#FAKE_anagrafiche_paese_1" table="anagrafiche_paese" schema="" catalog="" columns="continente_id"/>
+    </table>
+    <table name="anagrafiche_giornifestivi" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="giorno" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="mese" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="festivita" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="anagrafiche_impiegati" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="ruolo" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="costo_orario" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="anagrafiche_impiegati_rubrica" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="impiegati_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="rubrica_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_anagrafiche_impiegati_rubrica_1" columns="rubrica_id" ref-table="anagrafiche_rubrica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_impiegati_rubrica_b2cedf11" unique="true" columns="rubrica_id"/>
+      <index name="anagrafiche_impiegati_rubrica_cec480f9" unique="true" columns="impiegati_id"/>
+    </table>
+    <table name="anagrafiche_indirizzo" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="indirizzo" sqlType="VARCHAR(150)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="citta" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cap" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="provincia" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="nazione" sqlType="VARCHAR(3)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_anagrafiche_indirizzo_mycontact_2" table="anagrafiche_indirizzo_mycontact" schema="" catalog="" columns="indirizzo_id"/>
+    </table>
+    <table name="anagrafiche_indirizzo_mycontact" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="riferimento" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="indirizzo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="contact_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="tipo" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_anagrafiche_indirizzo_mycontact_1" columns="contact_id" ref-table="anagrafiche_mycontact" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_anagrafiche_indirizzo_mycontact_2" columns="indirizzo_id" ref-table="anagrafiche_indirizzo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_indirizzo_mycontact_816533ed" unique="true" columns="contact_id"/>
+      <index name="anagrafiche_indirizzo_mycontact_12387139" unique="true" columns="indirizzo_id"/>
+    </table>
+    <table name="anagrafiche_localita" schema="" catalog="" type="TABLE">
+      <column name="comune" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="provincia_id" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="comune"/>
+      <foreign-key name="#FAKE_anagrafiche_localita_1" columns="provincia_id" ref-table="anagrafiche_provincia" ref-schema="" ref-catalog="" ref-columns="sigla_provincia" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_localita_b8c8d789" unique="true" columns="provincia_id"/>
+    </table>
+    <table name="anagrafiche_localita_cap" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="localita_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cap_id" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_anagrafiche_localita_cap_1" columns="cap_id" ref-table="anagrafiche_cap" ref-schema="" ref-catalog="" ref-columns="cap" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_localita_cap_b868cd10" unique="true" columns="cap_id"/>
+      <index name="anagrafiche_localita_cap_5842903a" unique="true" columns="localita_id"/>
+    </table>
+    <table name="anagrafiche_macchina" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="funzione" sqlType="VARCHAR(1)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="anagrafiche_mycontact" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="denominazione" sqlType="VARCHAR(150)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="societa" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="p_iva" sqlType="VARCHAR(13)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cod_fiscale" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR(25)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cellulare" sqlType="VARCHAR(25)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="fax" sqlType="VARCHAR(25)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR(150)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="privacy" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="newsletter" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="data_inscrizione" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_anagrafiche_cliente_1" table="anagrafiche_cliente" schema="" catalog="" columns="mycontact_ptr_id"/>
+      <exported-key name="#FAKE_anagrafiche_contatto_1" table="anagrafiche_contatto" schema="" catalog="" columns="mycontact_ptr_id"/>
+      <exported-key name="#FAKE_anagrafiche_indirizzo_mycontact_1" table="anagrafiche_indirizzo_mycontact" schema="" catalog="" columns="contact_id"/>
+      <exported-key name="#FAKE_anagrafiche_referente_1" table="anagrafiche_referente" schema="" catalog="" columns="azienda_id"/>
+    </table>
+    <table name="anagrafiche_paese" schema="" catalog="" type="TABLE">
+      <column name="sigla_paese" sqlType="VARCHAR(3)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="paese" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="continente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="prefisso_internazionale" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="sigla_paese"/>
+      <foreign-key name="#FAKE_anagrafiche_paese_1" columns="continente_id" ref-table="anagrafiche_continente" ref-schema="" ref-catalog="" ref-columns="continente" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_anagrafiche_provincia_1" table="anagrafiche_provincia" schema="" catalog="" columns="stato_appartenenza_id"/>
+      <exported-key name="#FAKE_anagrafiche_tipo_societa_1" table="anagrafiche_tipo_societa" schema="" catalog="" columns="paese_riferimento_id"/>
+      <index name="anagrafiche_paese_84ce5543" unique="true" columns="continente_id"/>
+    </table>
+    <table name="anagrafiche_provincia" schema="" catalog="" type="TABLE">
+      <column name="sigla_provincia" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="provincia" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="stato_appartenenza_id" sqlType="VARCHAR(3)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="sigla_provincia"/>
+      <foreign-key name="#FAKE_anagrafiche_provincia_1" columns="stato_appartenenza_id" ref-table="anagrafiche_paese" ref-schema="" ref-catalog="" ref-columns="sigla_paese" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_anagrafiche_localita_1" table="anagrafiche_localita" schema="" catalog="" columns="provincia_id"/>
+      <index name="anagrafiche_provincia_d3ba6911" unique="true" columns="stato_appartenenza_id"/>
+    </table>
+    <table name="anagrafiche_referente" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="referente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="azienda_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="funzione" sqlType="VARCHAR(10)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_anagrafiche_referente_1" columns="azienda_id" ref-table="anagrafiche_mycontact" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_anagrafiche_referente_2" columns="referente_id" ref-table="anagrafiche_rubrica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_referente_f2ad22f8" unique="true" columns="azienda_id"/>
+      <index name="anagrafiche_referente_499fdc96" unique="true" columns="referente_id"/>
+    </table>
+    <table name="anagrafiche_rubrica" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_anagrafiche_impiegati_rubrica_1" table="anagrafiche_impiegati_rubrica" schema="" catalog="" columns="rubrica_id"/>
+      <exported-key name="#FAKE_anagrafiche_referente_2" table="anagrafiche_referente" schema="" catalog="" columns="referente_id"/>
+      <exported-key name="#FAKE_anagrafiche_voce_rubrica_1" table="anagrafiche_voce_rubrica" schema="" catalog="" columns="rubrica_id"/>
+    </table>
+    <table name="anagrafiche_tipo_societa" schema="" catalog="" type="TABLE">
+      <column name="sigla_societa" sqlType="VARCHAR(5)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="paese_riferimento_id" sqlType="VARCHAR(3)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="sigla_societa"/>
+      <foreign-key name="#FAKE_anagrafiche_tipo_societa_1" columns="paese_riferimento_id" ref-table="anagrafiche_paese" ref-schema="" ref-catalog="" ref-columns="sigla_paese" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_tipo_societa_07bf0ba1" unique="true" columns="paese_riferimento_id"/>
+    </table>
+    <table name="anagrafiche_voce_rubrica" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="rubrica_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="dato" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_anagrafiche_voce_rubrica_1" columns="rubrica_id" ref-table="anagrafiche_rubrica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_anagrafiche_voce_rubrica_2" columns="campo_id" ref-table="anagrafiche_campo_rubrica" ref-schema="" ref-catalog="" ref-columns="campo" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="anagrafiche_voce_rubrica_b2cedf11" unique="true" columns="rubrica_id"/>
+      <index name="anagrafiche_voce_rubrica_f16fe35a" unique="true" columns="campo_id"/>
+    </table>
+    <table name="auth_group" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(80)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_auth_group_permissions_2" table="auth_group_permissions" schema="" catalog="" columns="group_id"/>
+      <exported-key name="#FAKE_auth_user_groups_1" table="auth_user_groups" schema="" catalog="" columns="group_id"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_auth_group_permissions_1" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_auth_group_permissions_2" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="auth_group_permissions_8373b171" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_0e939a4f" unique="true" columns="group_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(255)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_auth_permission_1" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_auth_group_permissions_1" table="auth_group_permissions" schema="" catalog="" columns="permission_id"/>
+      <exported-key name="#FAKE_auth_user_user_permissions_1" table="auth_user_user_permissions" schema="" catalog="" columns="permission_id"/>
+      <index name="auth_permission_417f1b1c" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="last_login" sqlType="DATETIME" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR(128)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="is_superuser" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR(254)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="is_active" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="date_joined" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_auth_user_groups_2" table="auth_user_groups" schema="" catalog="" columns="user_id"/>
+      <exported-key name="#FAKE_auth_user_user_permissions_2" table="auth_user_user_permissions" schema="" catalog="" columns="user_id"/>
+      <exported-key name="#FAKE_django_admin_log_1" table="django_admin_log" schema="" catalog="" columns="user_id"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_auth_user_groups_1" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_auth_user_groups_2" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="auth_user_groups_0e939a4f" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_e8701ad4" unique="true" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_auth_user_user_permissions_1" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_auth_user_user_permissions_2" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="auth_user_user_permissions_8373b171" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_e8701ad4" unique="true" columns="user_id"/>
+    </table>
+    <table name="catalogo_campo" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="titolo" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="tipo_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_campo_1" columns="tipo_id" ref-table="catalogo_tipocampo" ref-schema="" ref-catalog="" ref-columns="tipo" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_catalogo_immaginicampo_4" table="catalogo_immaginicampo" schema="" catalog="" columns="campo_id"/>
+      <exported-key name="#FAKE_catalogo_mappacampi_2" table="catalogo_mappacampi" schema="" catalog="" columns="figlio_id"/>
+      <exported-key name="#FAKE_catalogo_mappacampi_4" table="catalogo_mappacampi" schema="" catalog="" columns="campo_id"/>
+      <exported-key name="#FAKE_catalogo_valoricampo_4" table="catalogo_valoricampo" schema="" catalog="" columns="campo_id"/>
+      <index name="catalogo_campo_acf1eac4" unique="true" columns="tipo_id"/>
+    </table>
+    <table name="catalogo_categoria" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="categoria" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="short_description" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="small_image" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="in_evidenza" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="catalogo_categoria_immagini" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="categoria_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="immagini_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_categoria_immagini_1" columns="immagini_id" ref-table="catalogo_immagini" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_categoria_immagini_57d86873" unique="true" columns="immagini_id"/>
+      <index name="catalogo_categoria_immagini_5f2644f7" unique="true" columns="categoria_id"/>
+    </table>
+    <table name="catalogo_categoria_prodotti" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="categoria_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="prodotto_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_categoria_prodotti_1" columns="prodotto_id" ref-table="prodotti_prodotto" ref-schema="" ref-catalog="" ref-columns="prodotto" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_categoria_prodotti_115dff74" unique="true" columns="prodotto_id"/>
+      <index name="catalogo_categoria_prodotti_5f2644f7" unique="true" columns="categoria_id"/>
+    </table>
+    <table name="catalogo_immagini" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="titolo" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="Oggetto_id" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="altezza" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="larghezza" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="thumbnail" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_immagini_1" columns="Oggetto_id" ref-table="catalogo_tipooggetto" ref-schema="" ref-catalog="" ref-columns="oggetto" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_catalogo_categoria_immagini_1" table="catalogo_categoria_immagini" schema="" catalog="" columns="immagini_id"/>
+      <exported-key name="#FAKE_catalogo_valoricampo_3" table="catalogo_valoricampo" schema="" catalog="" columns="immagine_id"/>
+      <index name="catalogo_immagini_85f01ce4" unique="true" columns="Oggetto_id"/>
+      <index name="catalogo_immagini_37ef4eb4" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="catalogo_immaginicampo" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="valori_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="riferimento_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="rif_componente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_immaginicampo_1" columns="rif_componente_id" ref-table="catalogo_riferimenti" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_immaginicampo_2" columns="riferimento_id" ref-table="catalogo_riferimenti" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_immaginicampo_3" columns="valori_id" ref-table="catalogo_valori" ref-schema="" ref-catalog="" ref-columns="valore" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_immaginicampo_4" columns="campo_id" ref-table="catalogo_campo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_immaginicampo_7c7c6619" unique="true" columns="rif_componente_id"/>
+      <index name="catalogo_immaginicampo_bd6d7bf9" unique="true" columns="riferimento_id"/>
+      <index name="catalogo_immaginicampo_1e4a27f0" unique="true" columns="valori_id"/>
+      <index name="catalogo_immaginicampo_f16fe35a" unique="true" columns="campo_id"/>
+    </table>
+    <table name="catalogo_mappacampi" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="valore_padre_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="figlio_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="valore_figlio_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_mappacampi_1" columns="valore_figlio_id" ref-table="catalogo_valori" ref-schema="" ref-catalog="" ref-columns="valore" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_mappacampi_2" columns="figlio_id" ref-table="catalogo_campo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_mappacampi_3" columns="valore_padre_id" ref-table="catalogo_valoricampo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_mappacampi_4" columns="campo_id" ref-table="catalogo_campo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_mappacampi_fe5084d5" unique="true" columns="valore_figlio_id"/>
+      <index name="catalogo_mappacampi_81fa0fcd" unique="true" columns="figlio_id"/>
+      <index name="catalogo_mappacampi_07812cce" unique="true" columns="valore_padre_id"/>
+      <index name="catalogo_mappacampi_f16fe35a" unique="true" columns="campo_id"/>
+    </table>
+    <table name="catalogo_media" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="titolo" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="didascalia" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="pagina" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="catalogo_ordine" schema="" catalog="" type="TABLE">
+      <column name="Nr" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="cliente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="righe_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="Nr"/>
+      <foreign-key name="#FAKE_catalogo_ordine_1" columns="righe_id" ref-table="catalogo_rigaordine" ref-schema="" ref-catalog="" ref-columns="nr" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_ordine_2" columns="cliente_id" ref-table="anagrafiche_contatto" ref-schema="" ref-catalog="" ref-columns="mycontact_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_ordine_2b7039a0" unique="true" columns="righe_id"/>
+      <index name="catalogo_ordine_1d8b2af5" unique="true" columns="cliente_id"/>
+    </table>
+    <table name="catalogo_riferimenti" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="riferimento" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_catalogo_immaginicampo_1" table="catalogo_immaginicampo" schema="" catalog="" columns="rif_componente_id"/>
+      <exported-key name="#FAKE_catalogo_immaginicampo_2" table="catalogo_immaginicampo" schema="" catalog="" columns="riferimento_id"/>
+      <exported-key name="#FAKE_catalogo_valoricampo_1" table="catalogo_valoricampo" schema="" catalog="" columns="rif_componente_id"/>
+      <exported-key name="#FAKE_catalogo_valoricampo_riferimento_1" table="catalogo_valoricampo_riferimento" schema="" catalog="" columns="riferimenti_id"/>
+      <index name="catalogo_riferimenti_37ef4eb4" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="catalogo_rigaordine" schema="" catalog="" type="TABLE">
+      <column name="nr" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="articolo_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="data_consegna" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="nr"/>
+      <foreign-key name="#FAKE_catalogo_rigaordine_1" columns="articolo_id" ref-table="prodotti_prodotto" ref-schema="" ref-catalog="" ref-columns="prodotto" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_catalogo_ordine_1" table="catalogo_ordine" schema="" catalog="" columns="righe_id"/>
+      <index name="catalogo_rigaordine_ca0527b0" unique="true" columns="articolo_id"/>
+    </table>
+    <table name="catalogo_tipocampo" schema="" catalog="" type="TABLE">
+      <column name="tipo" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="html" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="tipo"/>
+      <exported-key name="#FAKE_catalogo_campo_1" table="catalogo_campo" schema="" catalog="" columns="tipo_id"/>
+    </table>
+    <table name="catalogo_tipooggetto" schema="" catalog="" type="TABLE">
+      <column name="oggetto" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="oggetto"/>
+      <exported-key name="#FAKE_catalogo_immagini_1" table="catalogo_immagini" schema="" catalog="" columns="Oggetto_id"/>
+    </table>
+    <table name="catalogo_valori" schema="" catalog="" type="TABLE">
+      <column name="valore" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="valore"/>
+      <exported-key name="#FAKE_catalogo_immaginicampo_3" table="catalogo_immaginicampo" schema="" catalog="" columns="valori_id"/>
+      <exported-key name="#FAKE_catalogo_mappacampi_1" table="catalogo_mappacampi" schema="" catalog="" columns="valore_figlio_id"/>
+      <exported-key name="#FAKE_catalogo_valoricampo_2" table="catalogo_valoricampo" schema="" catalog="" columns="valori_id"/>
+    </table>
+    <table name="catalogo_valoricampo" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="immagine_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valori_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="rif_componente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_valoricampo_1" columns="rif_componente_id" ref-table="catalogo_riferimenti" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_valoricampo_2" columns="valori_id" ref-table="catalogo_valori" ref-schema="" ref-catalog="" ref-columns="valore" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_valoricampo_3" columns="immagine_id" ref-table="catalogo_immagini" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_catalogo_valoricampo_4" columns="campo_id" ref-table="catalogo_campo" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_catalogo_mappacampi_3" table="catalogo_mappacampi" schema="" catalog="" columns="valore_padre_id"/>
+      <index name="catalogo_valoricampo_7c7c6619" unique="true" columns="rif_componente_id"/>
+      <index name="catalogo_valoricampo_1e4a27f0" unique="true" columns="valori_id"/>
+      <index name="catalogo_valoricampo_7af67492" unique="true" columns="immagine_id"/>
+      <index name="catalogo_valoricampo_f16fe35a" unique="true" columns="campo_id"/>
+    </table>
+    <table name="catalogo_valoricampo_riferimento" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="valoricampo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="riferimenti_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_catalogo_valoricampo_riferimento_1" columns="riferimenti_id" ref-table="catalogo_riferimenti" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="catalogo_valoricampo_riferimento_0b1070d6" unique="true" columns="riferimenti_id"/>
+      <index name="catalogo_valoricampo_riferimento_90caad51" unique="true" columns="valoricampo_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="action_time" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="object_id" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="object_repr" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="change_message" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_django_admin_log_1" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_django_admin_log_2" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="django_admin_log_e8701ad4" unique="true" columns="user_id"/>
+      <index name="django_admin_log_417f1b1c" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <exported-key name="#FAKE_auth_permission_1" table="auth_permission" schema="" catalog="" columns="content_type_id"/>
+      <exported-key name="#FAKE_django_admin_log_2" table="django_admin_log" schema="" catalog="" columns="content_type_id"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="app" sqlType="VARCHAR(255)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR(255)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="expire_date" sqlType="DATETIME" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="session_key"/>
+      <index name="django_session_de54fa62" unique="true" columns="expire_date"/>
+    </table>
+    <table name="prodotti_accessori" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="from_componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="to_componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_accessori_1" columns="to_componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_accessori_2" columns="from_componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_accessori_70d1dc48" unique="true" columns="to_componente_id"/>
+      <index name="prodotti_accessori_4a1836bf" unique="true" columns="from_componente_id"/>
+    </table>
+    <table name="prodotti_calcoloum" schema="" catalog="" type="TABLE">
+      <column name="nome" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="nome"/>
+      <exported-key name="#FAKE_prodotti_conversione_2" table="prodotti_conversione" schema="" catalog="" columns="um_id"/>
+      <exported-key name="#FAKE_prodotti_lavorazionecomponente_3" table="prodotti_lavorazionecomponente" schema="" catalog="" columns="calcolo_prezzo_id"/>
+      <exported-key name="#FAKE_prodotti_variantecomponente_3" table="prodotti_variantecomponente" schema="" catalog="" columns="calcolo_prezzo_id"/>
+    </table>
+    <table name="prodotti_campicomponente" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="ordine_visualizzazione" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="padri" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="figli" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_campicomponente_1" columns="componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_campicomponente_f16fe35a" unique="true" columns="campo_id"/>
+      <index name="prodotti_campicomponente_78737668" unique="true" columns="componente_id"/>
+    </table>
+    <table name="prodotti_caratteristica" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="specifica_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="valore" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_caratteristica_1" columns="specifica_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_caratteristica_37ef4eb4" unique="true" columns="content_type_id"/>
+      <index name="prodotti_caratteristica_aecda1d0" unique="true" columns="specifica_id"/>
+    </table>
+    <table name="prodotti_componente" schema="" catalog="" type="TABLE">
+      <column name="nome" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="nome"/>
+      <exported-key name="#FAKE_prodotti_accessori_1" table="prodotti_accessori" schema="" catalog="" columns="to_componente_id"/>
+      <exported-key name="#FAKE_prodotti_accessori_2" table="prodotti_accessori" schema="" catalog="" columns="from_componente_id"/>
+      <exported-key name="#FAKE_prodotti_campicomponente_1" table="prodotti_campicomponente" schema="" catalog="" columns="componente_id"/>
+      <exported-key name="#FAKE_prodotti_lavorazionecomponente_4" table="prodotti_lavorazionecomponente" schema="" catalog="" columns="componente_id"/>
+      <exported-key name="#FAKE_prodotti_prodotto_Componenti_1" table="prodotti_prodotto_Componenti" schema="" catalog="" columns="componente_id"/>
+      <exported-key name="#FAKE_prodotti_scontoformato_2" table="prodotti_scontoformato" schema="" catalog="" columns="componente_id"/>
+      <exported-key name="#FAKE_prodotti_variantecomponente_4" table="prodotti_variantecomponente" schema="" catalog="" columns="componente_id"/>
+    </table>
+    <table name="prodotti_conversione" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="um_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="specifica_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="fatt_conversione" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_conversione_1" columns="specifica_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_conversione_2" columns="um_id" ref-table="prodotti_calcoloum" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_conversione_aecda1d0" unique="true" columns="specifica_id"/>
+      <index name="prodotti_conversione_8503fe03" unique="true" columns="um_id"/>
+    </table>
+    <table name="prodotti_formati" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="nome" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_formati_1" columns="spec2_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_formati_2" columns="spec1_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_prodotti_scontoformato_1" table="prodotti_scontoformato" schema="" catalog="" columns="formato_id"/>
+      <index name="prodotti_formati_1bb8de45" unique="true" columns="spec2_id"/>
+      <index name="prodotti_formati_c1c16460" unique="true" columns="spec1_id"/>
+    </table>
+    <table name="prodotti_giorniaumento" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="nr_gironi_consegna" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="aumento_percentuale" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <primary-key columns="id"/>
+      <index name="prodotti_giorniaumento_37ef4eb4" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="prodotti_lavorazione" schema="" catalog="" type="TABLE">
+      <column name="nome" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="costo" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <column name="UM_id" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="macchina_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="addetti" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="nome"/>
+      <foreign-key name="#FAKE_prodotti_lavorazione_1" columns="UM_id" ref-table="prodotti_um" ref-schema="" ref-catalog="" ref-columns="UM" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_prodotti_lavorazionecomponente_5" table="prodotti_lavorazionecomponente" schema="" catalog="" columns="lavorazione_id"/>
+      <index name="prodotti_lavorazione_9d6c714f" unique="true" columns="macchina_id"/>
+      <index name="prodotti_lavorazione_203d6937" unique="true" columns="UM_id"/>
+    </table>
+    <table name="prodotti_lavorazionecomponente" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="lavorazione_id" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="tipoLavorazione" sqlType="VARCHAR(1)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="prezzoVendita" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <column name="calcolo_prezzo_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_campo" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_lavorazionecomponente_1" columns="spec2_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_lavorazionecomponente_2" columns="spec1_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_lavorazionecomponente_3" columns="calcolo_prezzo_id" ref-table="prodotti_calcoloum" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_lavorazionecomponente_4" columns="componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_lavorazionecomponente_5" columns="lavorazione_id" ref-table="prodotti_lavorazione" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_lavorazionecomponente_f16fe35a" unique="true" columns="campo_id"/>
+      <index name="prodotti_lavorazionecomponente_1bb8de45" unique="true" columns="spec2_id"/>
+      <index name="prodotti_lavorazionecomponente_c1c16460" unique="true" columns="spec1_id"/>
+      <index name="prodotti_lavorazionecomponente_6783cc64" unique="true" columns="calcolo_prezzo_id"/>
+      <index name="prodotti_lavorazionecomponente_78737668" unique="true" columns="componente_id"/>
+      <index name="prodotti_lavorazionecomponente_b40caa91" unique="true" columns="lavorazione_id"/>
+    </table>
+    <table name="prodotti_prodottiimage" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR(100)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="object_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="Oggetto_id" sqlType="VARCHAR(20)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="altezza" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="larghezza" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="prodotti_prodottiimage_85f01ce4" unique="true" columns="Oggetto_id"/>
+      <index name="prodotti_prodottiimage_37ef4eb4" unique="true" columns="content_type_id"/>
+    </table>
+    <table name="prodotti_prodotto" schema="" catalog="" type="TABLE">
+      <column name="prodotto" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="short_description" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="sconto_globale" sqlType="SMALLINT UNSIGNED" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="prodotto_new" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="in_evidenza" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="prodotto"/>
+      <exported-key name="#FAKE_catalogo_categoria_prodotti_1" table="catalogo_categoria_prodotti" schema="" catalog="" columns="prodotto_id"/>
+      <exported-key name="#FAKE_catalogo_rigaordine_1" table="catalogo_rigaordine" schema="" catalog="" columns="articolo_id"/>
+    </table>
+    <table name="prodotti_prodotto_Componenti" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="prodotto_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_prodotto_Componenti_1" columns="componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_prodotto_Componenti_78737668" unique="true" columns="componente_id"/>
+      <index name="prodotti_prodotto_Componenti_115dff74" unique="true" columns="prodotto_id"/>
+    </table>
+    <table name="prodotti_scontoformato" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="formato_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="sconto" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="default" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_scontoformato_1" columns="formato_id" ref-table="prodotti_formati" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_scontoformato_2" columns="componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_scontoformato_f16fe35a" unique="true" columns="campo_id"/>
+      <index name="prodotti_scontoformato_ad87ccf3" unique="true" columns="formato_id"/>
+      <index name="prodotti_scontoformato_78737668" unique="true" columns="componente_id"/>
+    </table>
+    <table name="prodotti_specifica" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="specifica" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="UM_id" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_specifica_1" columns="UM_id" ref-table="prodotti_um" ref-schema="" ref-catalog="" ref-columns="UM" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_prodotti_caratteristica_1" table="prodotti_caratteristica" schema="" catalog="" columns="specifica_id"/>
+      <exported-key name="#FAKE_prodotti_conversione_1" table="prodotti_conversione" schema="" catalog="" columns="specifica_id"/>
+      <exported-key name="#FAKE_prodotti_formati_1" table="prodotti_formati" schema="" catalog="" columns="spec2_id"/>
+      <exported-key name="#FAKE_prodotti_formati_2" table="prodotti_formati" schema="" catalog="" columns="spec1_id"/>
+      <exported-key name="#FAKE_prodotti_lavorazionecomponente_1" table="prodotti_lavorazionecomponente" schema="" catalog="" columns="spec2_id"/>
+      <exported-key name="#FAKE_prodotti_lavorazionecomponente_2" table="prodotti_lavorazionecomponente" schema="" catalog="" columns="spec1_id"/>
+      <exported-key name="#FAKE_prodotti_variantecomponente_1" table="prodotti_variantecomponente" schema="" catalog="" columns="spec2_id"/>
+      <exported-key name="#FAKE_prodotti_variantecomponente_2" table="prodotti_variantecomponente" schema="" catalog="" columns="spec1_id"/>
+      <index name="prodotti_specifica_203d6937" unique="true" columns="UM_id"/>
+    </table>
+    <table name="prodotti_specifica_campo" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="specifica_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <index name="prodotti_specifica_campo_f16fe35a" unique="true" columns="campo_id"/>
+      <index name="prodotti_specifica_campo_aecda1d0" unique="true" columns="specifica_id"/>
+    </table>
+    <table name="prodotti_um" schema="" catalog="" type="TABLE">
+      <column name="UM" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descrizione" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="UM"/>
+      <exported-key name="#FAKE_prodotti_lavorazione_1" table="prodotti_lavorazione" schema="" catalog="" columns="UM_id"/>
+      <exported-key name="#FAKE_prodotti_specifica_1" table="prodotti_specifica" schema="" catalog="" columns="UM_id"/>
+      <exported-key name="#FAKE_prodotti_variante_1" table="prodotti_variante" schema="" catalog="" columns="UM_id"/>
+    </table>
+    <table name="prodotti_variante" schema="" catalog="" type="TABLE">
+      <column name="nome" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="costo" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <column name="UM_id" sqlType="VARCHAR(2)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="nome"/>
+      <foreign-key name="#FAKE_prodotti_variante_1" columns="UM_id" ref-table="prodotti_um" ref-schema="" ref-catalog="" ref-columns="UM" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_prodotti_variantecomponente_5" table="prodotti_variantecomponente" schema="" catalog="" columns="variante_id"/>
+      <index name="prodotti_variante_203d6937" unique="true" columns="UM_id"/>
+    </table>
+    <table name="prodotti_variantecomponente" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="variante_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="componente_id" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="prezzoVendita" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="false" jdbcType="6"/>
+      <column name="calcolo_prezzo_id" sqlType="VARCHAR(30)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="spec1_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_1" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="spec2_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="valore_2" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="campo_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="valore_campo" sqlType="VARCHAR(40)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="default" sqlType="BOOL" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_prodotti_variantecomponente_1" columns="spec2_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_variantecomponente_2" columns="spec1_id" ref-table="prodotti_specifica" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_variantecomponente_3" columns="calcolo_prezzo_id" ref-table="prodotti_calcoloum" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_variantecomponente_4" columns="componente_id" ref-table="prodotti_componente" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_prodotti_variantecomponente_5" columns="variante_id" ref-table="prodotti_variante" ref-schema="" ref-catalog="" ref-columns="nome" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="prodotti_variantecomponente_f16fe35a" unique="true" columns="campo_id"/>
+      <index name="prodotti_variantecomponente_1bb8de45" unique="true" columns="spec2_id"/>
+      <index name="prodotti_variantecomponente_c1c16460" unique="true" columns="spec1_id"/>
+      <index name="prodotti_variantecomponente_6783cc64" unique="true" columns="calcolo_prezzo_id"/>
+      <index name="prodotti_variantecomponente_78737668" unique="true" columns="componente_id"/>
+      <index name="prodotti_variantecomponente_907efdd2" unique="true" columns="variante_id"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - @localhost [2]" uuid="de86ccc7-d410-4a45-b074-51e57283b09f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
