@@ -1,0 +1,338 @@
+{% extends "doc_base.html" %}
+{% load staticfiles %}
+{% block title %}Doctorvisual - {{ rif }}{% endblock %}
+<!-- Fogli di stile -->
+{% block css %}
+<link href={%  static "css/scheda-prodotto.css"%} rel="stylesheet" type="text/css" media="screen">
+{% endblock %}
+{% block jsr %}
+    <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+    <script src="{% static "js/jquery-validation-1-2/lib/jquery.js" %}"></script>
+    <script src="{% static "js/prodotto.js" %}"></script>
+
+{% endblock %}
+{% block slider %}
+    <div class="col-lg-9 col-md-9 col-sm-9 main-content">
+        <div class="row main-content">
+        <!-- Blocco slider -->
+        <div class="col-lg-9 col-md-9 col-sm-9 slider">
+          <div id="carousel_fade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+              {% for i in slider %}
+              <div class="item active"> <img src="{% static "media/" %}{{ i.image }}" alt="...">
+                <div class="carousel-caption">
+                  <h3>{{ i.titolo }}</h3>
+                  <p>{{ i.didascalia }}</p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+{% endblock %}
+        <!-- Fine blocco slider -->
+{% block adv %}
+        <!-- Blocco pulsanti adv -->
+        <div class="col-lg-3 col-md-3 col-sm-3 adv-bottom"> {% for i in adv %} <a href="{{ i.url }}"><img src="{% static "media/" %}{{ i.image }}"></a>{% endfor %}</div>
+        <!-- Fine blocco pulsanti adv -->
+    </div>
+{% endblock %}
+{% block mainblock %}
+
+        <!-- Blocco scheda prodotto-->
+        <div class="row scheda-prodotto">
+          <!-- Blocco opzioni prodotto-->
+          <div class="col-lg-9 col-md-9 col-sm-9 specifiche">
+          <h1 id="componente">{{ mat }}</h1></span>
+          <h2>Calcola il preventivo</h2>
+          <form class="form-horizontal" name="form" action="/carrello/" method="post">{% csrf_token %}
+            <fieldset>
+              {{ campiCom|safe }}
+              {{ campiLav|safe }}
+                {{ campi|safe }}
+            {% if button_accessori %}
+              <!--Accessori radio button con image-->
+              <div class="form-group checkbox-image">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <label class="titolo">Accessori</label>
+                </div>
+                <div class="clearfix"></div>
+                 </span>
+
+                   <label class="checkbox-inline">
+                        <input type="radio" class="accessorio" name="accessorio" id="nessuno" value="nessuno" checked="checked">
+                        <img src="{% static "images/nessuno.jpg" %}" alt="" />Nessuno</label>
+                  {% for i in button_accessori %}
+                      <span class="accessori" id="{{ i.id }}">
+                        <label class="checkbox-inline">
+                        <input type="radio" class="accessorio" name="accessorio" acc_id={{ i.id }} id={{ forloop.counter0 }} value="{{ i.varianti_accessorio }}">
+                        <img src="{% static "media/" %}{{i.image}}" alt="{{ i.varianti_accessorio }}" />{{ i.varianti_accessorio }}</label>
+                      </span>
+                  {% endfor %}
+              </div>
+                {{ campiAcc|safe }}
+            {% endif %}
+              <!-- Fine Accessori radio button con image-->
+              <!-- Tabella consegne-->
+              <div class="form-group consegna">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <label class="titolo">Prezzi al netto di iva con consegna indicativa:</label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="table-responsive text-center">
+                {{ tabella|safe }}
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <p><span class="glyphicon glyphicon-asterisk"></span> Le <b>date di consegna</b> sono valide per la maggior parte del territorio nazionale. Le isole e le zone più remote possono essere servite in due o più giorni lavorativi. L‘arrivo di file o conferme di pagamento (Carta di credito, Paypal e Bonifico) successivi alle ore 13:00 della richiesta porteranno a conseguenti slittamenti dei tempi di consegna.</p>
+                </div>
+              </div>
+
+              <!-- Fine Tabella consegne--> 
+              <!-- Opzioni-->
+              <div class="form-group opzioni">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <label class="titolo">Opzioni Aggiuntive</label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                  <label>
+                  <h5>Verifica File</h5>
+                  <p>Richiedi la verifica con operatore dei tuoi file per essere sicuro che siano corretti (4,00 €) <span rel="popover" data-placement="right" data-content="" class="glyphicon glyphicon-question-sign pop"></span>.</p>
+                  <div id="popover_verifica" style="display: none">
+                    <p><b>Acquistando la verifica con operatore dei tuoi file riceverai:</b><br />
+                      verifica grafica sui margini di sicurezza<br />
+                      verifica della distanza degli elementi grafici dal bordo<br />
+                      verifica dell'orientamento del fronte e del retro<br />
+                      verifica della corretta impostazione grafica in caso di bandiere e strutture espositive.</p>
+                  </div>
+                  </label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                  <select class="form-control" id="verifica-file">
+                    <option>si</option>
+                    <option>no</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Fine Opzioni-->
+              <div class="form-group riepilogo">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <p><b>Ordine da effettuarsi</b> entro le 18:00 del giorno di creazione.<br />
+                    <b>File da inviare</b> entro le 13:00 del giorno di creazione.</p>
+                  <p><b>Pagamento</b> (escluso contrassegno) entro le 18:30 del giorno dell‘ordine (Visa, MasterCard, PayPal, B. Bancario).</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nome" class="col-lg-7 col-md-7 col-sm-7 control-label">Dai un nome alla tua lavorazione.</label>
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                  <input type="text" class="form-control" id="nome" placeholder="Inserisci il nome...">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-group submit-carrello">
+                <button class="col-lg-12 col-md-12 col-sm-12" type="submit" class="btn btn-default">
+                Aggiungi al carrello
+                </button>
+              </div>
+              </div>
+
+              <!-- Fine blocco opzioni prodotto-->
+            {% endblock %}
+            {% block dettagli %}
+              <!-- Blocco costi prodotto-->
+              <div class="col-lg-3 col-md-3 col-sm-3 colonna-carrello-box">
+              <div class="carrello-box col-lg-12 col-md-12 col-sm-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 schede-tecniche-template">
+                <h4>Dettagli Prodotto</h4>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td><a href="#" class="col-lg-12 col-md-12 col-sm-12 scheda-prodotto">Istruzioni</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#" class="col-lg-12 col-md-12 col-sm-12 pdf-template">Template</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Blocco prezzo ordine-->
+              <div class="col-lg-12 col-md-12 col-sm-12 prezzo-ordine">
+                <h4>Totale Ordine</h4>
+                <table class="col-lg-12 col-md-12 col-sm-12">
+                  <tbody>
+                    <tr>
+                      <td class="col-lg-6 col-md-6 col-sm-6">Totale netto</td>
+                      <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                      <td class="col-lg-4 col-md-4 col-sm-4">0,00</td>
+                    </tr>
+                    <tr>
+                      <td class="col-lg-6 col-md-6 col-sm-6">IVA 22,00%</td>
+                      <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                      <td class="col-lg-4 col-md-4 col-sm-4">0,00</td>
+                    </tr>
+                    <tr class="totale">
+                      <td class="col-lg-6 col-md-6 col-sm-6">Totale</td>
+                      <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                      <td class="col-lg-4 col-md-4 col-sm-4">0,00</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Button visualizza ordine -->
+                <button class="btn btn-primary col-lg-12 col-md-12 col-sm-12 visualizza" data-toggle="modal" data-target="#myModal5"> Visualizza ordine </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 intestazione-lavorazioni">
+                          <div class="col-lg-4">Lavorazione</div>
+                          <div class="col-lg-4">Consegna</div>
+                          <div class="col-lg-2">P. Netto</div>
+                          <div class="col-lg-2">P. + IVA</div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--Accordion Lavorazioni ordine-->
+                        <div class="panel-group" id="accordion"> 
+                          <!--Lavorazione 1-->
+                          <div class="panel panel-default lavorazione">
+                            <div class="panel-heading">
+                              <div class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <div class="col-lg-4">Lavorazione</div>
+                                <div class="col-lg-4">Consegna</div>
+                                <div class="col-lg-2">P. Netto</div>
+                                <div class="col-lg-2">P. + IVA</div>
+                                </a> </div>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Lavorazione 1--> 
+                          <!--Lavorazione 2-->
+                          <div class="panel panel-default lavorazione">
+                            <div class="panel-heading">
+                              <div class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo">
+                                <div class="col-lg-4 col-md-4 col-sm-4 ">Lavorazione</div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 ">Consegna</div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 ">P. Netto</div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 ">P. + IVA</div>
+                                </a> </div>
+                            </div>
+                            <div id="collapsetwo" class="panel-collapse collapse">
+                              <div class="panel-body">
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12  specifica">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">Specifica lavorazione</div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-left">Lavorazione scelta</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--Lavorazione 2--> 
+                        </div>
+                        <!--Fine Accordion Lavorazioni ordine--> 
+                        <!--Costo totale ordine-->
+                        <div class="col-lg-12 col-md-12 col-sm-12 costo-totale-ordine">
+                          <div class="col-lg-4 col-md-4 col-sm-4  col-sm-offset-8 col-md-offset-8 col-lg-offset-8">
+                            <div class="col-lg-8 col-md-8 col-sm-8 totalenetto">Totale netto </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 totalenetto">€ 0,00</div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4  col-sm-offset-8 col-md-offset-8 col-lg-offset-8">
+                            <div class="col-lg-8 col-md-8 col-sm-8 sconto-costo">Sconto </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 sconto-costo">€ 0,00</div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4  col-sm-offset-8 col-md-offset-8 col-lg-offset-8">
+                            <div class="col-lg-8 col-md-8 col-sm-8 spese-spedizioni-costo">Spedizione </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 spese-spedizioni-costo">€ 0,00</div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4  col-sm-offset-8 col-md-offset-8 col-lg-offset-8">
+                            <div class="col-lg-8 col-md-8 col-sm-8 iva-ordini">IVA </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 iva-ordini">€ 0,00</div>
+                          </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5  col-sm-offset-7 col-md-offset-7 col-lg-offset-7">
+                          <div class="col-lg-8 col-md-8 col-sm-8 totale-ordini">Totale Ordine </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 totale-ordini">€ 0,00</div>
+                        </div>
+                        
+                        <!--Fine Costo totale ordine--> 
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Continua gli acquisti</button>
+                        <button type="button" class="btn btn-primary">Vai al carrello</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Fine bottone visualizza ordine--> 
+              </div>
+              <!-- Fine blocco prezzo ordine--> 
+              <!-- Blocco prezzo preventivo-->
+              <div class="col-lg-12 col-md-12 col-sm-12 prezzo-preventivo">
+              <h4>Totale Preventivo</h4>
+              <table class="col-lg-12 col-md-12 col-sm-12">
+                <tbody>
+                  <tr class="consegna">
+                    <td class="col-lg-6 col-md-6 col-sm-6">Consegna</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2" ></td>
+                    <td class="col-lg-4 col-md-4 col-sm-4" id="dataPreventivo"></td>
+                  </tr>
+                  <tr>
+                    <td class="col-lg-6 col-md-6 col-sm-6">Netto</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                    <td class="col-lg-4 col-md-4 col-sm-4" id="nettoPreventivo">0,00</td>
+                  </tr>
+                  <tr>
+                    <td class="col-lg-6 col-md-6 col-sm-6">IVA 22,00%</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                    <td class="col-lg-4 col-md-4 col-sm-4" id="prezzoFinale">0,00</td>
+                  </tr>
+                  <tr class="totale">
+                    <td class="col-lg-6 col-md-6 col-sm-6">Totale</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2">€</td>
+                    <td class="col-lg-4 col-md-4 col-sm-4" id="totalePreventivo">0,00</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--  Button Aggiungi al carrello laterale  -->
+              <button class="btn btn-primary col-lg-12 col-md-12 col-sm-12 aggiungi-prodotto" id="carrello" type="submit"> Aggiungi al carrello </button>
+              <!-- Fine  Button Aggiungi al carrello laterale -->
+            </fieldset>
+          </form>
+        </div>
+        <!--Fine blocco preventivo prodotto--> 
+      </div>
+    </div>
+    <!-- Fine blocco costi prodotto--> 
+  </div>
+  <!-- Fine blocco scheda prodotto-->
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
