@@ -3,7 +3,8 @@
 {% block title %}Doctorvisual - {{ rif }}{% endblock %}
 <!-- Fogli di stile -->
 {% block css %}
-<link href={%  static "css/scheda-prodotto.css"%} rel="stylesheet" type="text/css" media="screen">
+<link href={% static "css/scheda-prodotto.css" %} rel="stylesheet" type="text/css" media="screen"
+      xmlns="http://www.w3.org/1999/html">
 {% endblock %}
 {% block jsr %}
     <!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
@@ -44,7 +45,7 @@
           <div class="col-lg-9 col-md-9 col-sm-9 specifiche">
           <h1 id="componente">{{ mat }}</h1></span>
           <h2>Calcola il preventivo</h2>
-          <form class="form-horizontal" name="form" action="/carrello/" method="post">{% csrf_token %}
+          <form class="form-horizontal" name="form" action="." method="post">{% csrf_token %}
             <fieldset>
               {{ campiCom|safe }}
               {{ campiLav|safe }}
@@ -130,12 +131,11 @@
               </div>
               <div class="clearfix"></div>
               <div class="form-group submit-carrello">
-                <button class="col-lg-12 col-md-12 col-sm-12" type="submit" id="carrello" class="btn btn-default">
-                Aggiungi al carrello
-                </button>
+                <!--button class="col-lg-12 col-md-12 col-sm-12" id="carrello1" type="submit" >Aggiungi al carrello</button-->
+                <button class="btn btn-primary col-lg-12 col-md-12 col-sm-12 aggiungi-prodotto" id="carrello1" type="submit"> Aggiungi al carrello </button>
               </div>
               </div>
-
+            </form>
               <!-- Fine blocco opzioni prodotto-->
             {% endblock %}
             {% block dettagli %}
@@ -319,10 +319,10 @@
                 </tbody>
               </table>
               <!--  Button Aggiungi al carrello laterale  -->
-              <button class="btn btn-primary col-lg-12 col-md-12 col-sm-12 aggiungi-prodotto" id="carrello" type="submit"> Aggiungi al carrello </button>
+              <button class="btn btn-primary col-lg-12 col-md-12 col-sm-12 aggiungi-prodotto" id="carrello2" type="submit"> Aggiungi al carrello </button>
               <!-- Fine  Button Aggiungi al carrello laterale -->
             </fieldset>
-          </form>
+
         </div>
         <!--Fine blocco preventivo prodotto--> 
       </div>
