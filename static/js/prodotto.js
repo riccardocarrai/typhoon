@@ -7,7 +7,7 @@ $(document).ready(function() {
     var componente=$("#componente").text();
     var accessorioClass=$(".Accessori")
     var campiSpecifiche=$("[specifica]")
-    //var campiSpecifiche=[]
+    var btnCarrello=$.merge($("#carrello1"),$("#carrello2"))
     //var campiLavo=$("[lav]")
     var campiLavo=campi.not("[specifica]")
     var accessori_num
@@ -31,6 +31,7 @@ $(document).ready(function() {
     var check=$(consegne[0]).attr('id');
     var defa=$("[default='true']")
 
+    $(btnCarrello).attr('disabled','disabled')
     var x=0
     for(var i=0;i<campi.length;i++){
         if($(campi[i]).attr('oggetto')!=componente && $(campi[i]).attr('oggetto')!=undefined){
