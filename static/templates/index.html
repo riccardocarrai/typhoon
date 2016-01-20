@@ -1,0 +1,119 @@
+{% extends "doc_base.html" %}
+{% load staticfiles %}
+
+    <!-- Fine blocco menu principale -->
+   {% block slider %}
+    <div class="col-lg-9 col-md-9 col-sm-9 main-content">
+
+      <div class="row main-content"> 
+        <!-- Blocco slider -->
+        <div class="col-lg-9 col-md-9 col-sm-9 slider">
+          <div id="carousel_fade" class="carousel slide carousel-fade"> 
+            <!-- Indicators --> 
+            <!--<ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>--> 
+            <!-- Wrapper for slides -->
+
+            <div class="carousel-inner">
+              {% for i in slider %}
+              <div class="item active"> <img src="{% static "media/" %}{{ i.image }}" alt="...">
+                <div class="carousel-caption">
+                  <h3>{{ i.titolo }}</h3>
+                  <p>{{ i.didascalia }}</p>
+                </div>
+              </div>
+                {% endfor %}
+
+
+
+            </div>
+            
+            <!-- Controls --> 
+            <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>--> </div>
+        </div>
+      {% endblock %}
+        <!-- Fine blocco slider -->
+      {% block adv %}
+        <!-- Blocco pulsanti adv -->
+        <div class="col-lg-3 col-md-3 col-sm-3 adv-bottom"> {% for i in adv %} <a href="{{ i.url }}"><img src="{% static "media/" %}{{ i.image }}"></a>{% endfor %}</div>
+        <!-- Fine blocco pulsanti adv -->
+      {% endblock %}
+      {% block sottoslider %}
+        <div class="clearfix"></div>
+        <!-- Blocco sotto slider -->
+        <div class="col-lg-6 col-md-6 col-sm-6 grafica"> <a href="#">Non hai la grafica?<br/>
+          Affidati a noi</a> </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 recensioni"> <img src="{% static "images/index.jpg" %}" /> </div>
+        <!-- Fine blocco sotto slider --> 
+      </div>
+      {% endblock %}
+      <!-- Pulsanti prodotti -->
+    {% block mainblock %}
+      <div class="row main-content prodotti">
+        <h2 class="text-left">prodotti in evidenza</h2>
+        <!-- Pulsante singolo prodotto -->
+        {% for i in pr_ev %}
+        {% if i.small_image %}
+            <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "media/" %}{{ i.small_image }})">
+        {% else %}
+            <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "images/no-photo.png" %})">
+        {% endif %}
+            <a href="{{ i.prodotto|lower|slugify}}">
+           {% if i.sconto_globale %}<div class="bollino-sconto">-{{ i.sconto_globale }}%</div>
+          {% else %}{% if i.prodotto_new %}<div class="bollino-new">New</div>{% endif %}
+           {% endif %}
+          <h5>{{ i.prodotto }}</h5>
+          <img class="acquista" src="{% static "images/bottom-product.png" %}" alt="Acquista" title="Nome Prodotto" /> </a> </div>
+        {% endfor %}
+          <!-- Fine pulsante singolo prodotto -->
+      </div>
+        <div class="row main-content prodotti">
+        <h2 class="text-left">categorie</h2>
+        <!-- Pulsante categoria -->
+        {% for i in cat_ev %}
+        {% if i.small_image %}
+            <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "media/" %}{{ i.small_image }})">
+        {% else %}
+            <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "images/no-photo.png" %})">
+        {% endif %}
+            <a href="{{ i.categoria|lower|slugify }}">
+          <h5>{{ i.categoria }}</h5>
+          <img class="acquista" src="{% static "images/bottom-product.png" %}" alt="Acquista" title="Nome Prodotto" /> </a> </div>
+        {% endfor %}
+          <!-- Fine pulsante categoria -->
+      </div>
+      <!-- Fine pulsanti prodotti --> 
+      <!-- Pulsante newsletter -->
+      <div class="row main-content newsletter">
+        <div class="col-lg-6 col-md-6 col-sm-6 testo">
+          <h3>ISCRIVITI ALLA NEWSLETTER</h3>
+          <h6>Ricevi le ultime novità e promozioni</h6>
+        </div>
+        <form>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Iscriviti</button>
+              </span> </div>
+            <div class="input-group policy">
+              <input type="checkbox">
+              <span> <a href="#">Accetto la normativa sulla privacy </a>
+              <p>I tuoi dati non verranno comunicati a terzi</p>
+              </span> </div>
+          </div>
+        </form>
+      </div>
+      <!-- Fine pulsante newsletter --> 
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- jQuery e plugin JavaScript  -->
+
+</body>
+</html>

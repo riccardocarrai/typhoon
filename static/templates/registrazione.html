@@ -1,0 +1,164 @@
+
+{% extends "doc_base.html" %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+{% block title %}Doctorvisual - registrati{% endblock %}
+{% block css %}
+    <link href="{% static "css/pagina-registrazione.css" %}" rel="stylesheet" type="text/css" media="screen"
+          xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+{% block jsr %}
+    <script src="{% static "js/jquery-validation-1-2/lib/jquery.js" %}"></script>
+    <script src="{% static "js/jquery-validation-1-2/dist/jquery.validate.js" %}"></script>
+    <script src="{% static "js/additional/password.js" %}"></script>
+    <script src="{% static "js/additional/validator.js" %}"></script>
+    <script src="{% static "js/localization/local_method_IT.js" %}"></script>
+    <script src="{% static "js/localization/messages_it.js" %}"></script>
+    <script src="{% static "js/formValidation.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+
+
+{% endblock %}
+{% block menu %}{% endblock %}
+
+{% block mainblock %}
+    {{ msg }}
+    {{ ms1 }}
+<div class="row main-content form-registrazione">
+    <!--Modulo Registrazione-->
+    <section>
+        <form id="registrazione" method="post" class="form-inline" action="/registrazione/validate.html">{% csrf_token %}
+      <h1>Registrazione </h1>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4>Nazionalità e tipo di cliente</h4>
+        <div class="row nazionalita">
+          <label class="col-lg-3 col-md-3 col-sm-3">{{ form.continente.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.paese.label }}</label>
+          <label id="tipo-cliente" class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.tipo_cliente.label }}</label>
+          <div class="clearfix"></div>
+          {{ form.continente }}
+          {{ form.paese }}
+          {{ form.tipo_cliente }}
+        </div>
+        <div class="clearfix"></div>
+        <h4>Dati di fatturazione e recapiti</h4>
+        <div class="clearfix"></div>
+        <span id="fatturazione">
+        </span>
+        <div class="clearfix"></div>
+        <h5>Recapiti</h5>
+        <div class="row">
+          <label class="col-lg-3 col-md-3 col-sm-3 ">{{ form.persona_riferimento.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.telefono.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cellulare.label }}</label>
+          <div class="clearfix"></div>
+          {{ form.persona_riferimento|attr:"class:  col-lg-3 col-md-3 col-sm-3"|attr:"data-validation:required"}}<!--btn btn-default col-lg-3 col-md-3 col-sm-3-->
+          {{ form.telefono|attr:"class: col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+          {{ form.cellulare|attr:"class: col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+        </div>
+        <div class="row">
+          <label class="col-lg-3 col-md-3 col-sm-3">{{ form.fax.label }} [<i>campo non obbligatorio</i>]</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.email.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.ripeti_email.label }}</label>
+          <div class="clearfix"></div>
+          {{ form.fax|attr:"class: col-lg-3 col-md-3 col-sm-3" }}
+          {{ form.email|attr:"class:col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1"|attr:"data-validation:email" }}
+          {{ form.ripeti_email|attr:"class: col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1"  }}
+        </div>
+        <div class="clearfix"></div>
+        <h4>Username e Password</h4>
+        <div class="row ">
+        <div class="form-group ">
+          <label class="col-lg-3 col-md-3 col-sm-3 ">{{ form.username.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.password.label }}</label>
+          <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.ripeti_password.label }}</label>
+          <div class="clearfix"></div>
+          {{ form.username|attr:"class: col-lg-3 col-md-3 col-sm-3" }}<!--'btn btn-default  col-lg-3 col-md-3 col-sm-3'-->
+          {{ form.password|attr:"class: col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+          {{ form.ripeti_password|attr:"class: col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+        </div>
+        </div>
+        <div class="clearfix"></div>
+        <h4>Privacy e Newsletter</h4>
+        <div class="clearfix"></div>
+        <div class="row">
+        <h5>Informativa Privacy</h5>
+          <div class="col-lg-12 col-md-12 col-sm-12 disclaimer">
+            <p><strong>PRIVACY POLICY - DOCTORVISUAL</strong></p>
+            <p>Ai sensi dell’art. 13 del d. lgs. 30 giugno 2003 n. 196 ("Codice Privacy"), la presente informativa descrive le modalità con cui Doctorvisual tratta i dati personali degli utenti ricevuti tramite il suo sito Internet (il “Sito”) e altri mezzi.</p>
+            <p><strong>TITOLARE DEL TRATTAMENTO</strong><br>
+              Il titolare del trattamento dei dati personali è Lab15 Srl, con sede legale in via Trieste, 12 - 35121 Padova e sede operativa in via Gori 10 - 30010 Lughetto fraz. di Campagna Lupia (VE) - fronte S.S. Romea, Italia.</p>
+            <p><strong>CATEGORIE E NATURA DEI DATI TRATTATI</strong> <br>
+              Doctorvisual tratterà i dati personali degli utenti raccolti durante la navigazione e l’utilizzo del Sito, nonché al momento della registrazione e dell’inoltro degli ordini di acquisto, attraverso strumenti elettronici e automatizzati (v. anche successiva sezione “Cookie”).</p>
+            <p><strong>FINALITÀ</strong><br>
+              I dati personali potranno essere trattati per le seguenti finalità: <br>
+              a) esecuzione di obblighi strettamente connessi e strumentali all’utilizzo del Sito, alla registrazione e all’accesso alle aree riservate dello stesso, all’invio degli ordini di acquisto e alla gestione del rapporto contrattuale;<br>
+              b) rispondere a specifiche richieste; <br>
+              c) adempiere ad obblighi di legge; <br>
+              d) esecuzione di statistiche e misurazione del livello di soddisfazione del cliente, nonché invio di comunicazioni promozionali e di newsletter (mediante posta e telefono, posta elettronica e sms, anche tramite strumenti automatizzati) ai contatti rilasciati al momento della compilazione del form di registrazione online;<br>
+              e) trattamento delle informazioni relative all’uso del Sito (quali frequenza d’uso, modalità, abitudini, interessi, statistiche, ordini di acquisto, etc.) attraverso l’impiego di cookie (v. successiva sezione “Cookies Policy di Doctorvisual”);</p>
+            <p><strong>NATURA OBBLIGATORIA O FACOLTATIVA DEL CONFERIMENTO DEI DATI E CONSEGUENZE DI UN EVENTUALE RIFIUTO</strong><br>
+              In merito alle finalità di cui ai precedenti punti a), b) e c), il conferimento dei Suoi dati personali a Doctorvisual è obbligatorio, e il relativo trattamento non richiede il suo consenso. L'eventuale rifiuto di fornire i dati potrà determinare l'impossibilità per Doctorvisual a dare corso al rapporto contrattuale e a evadere gli ordini di acquisto. Il conferimento dei dati relativi ai campi contrassegnati come non obbligatori all’interno del form di registrazione è invece facoltativo. <br>
+              Il conferimento dei dati per le finalità di cui ai punti d) ed e) è facoltativo, e un eventuale rifiuto non avrà alcuna conseguenza. <br>
+              Il contenuto del contratto d'acquisto viene archiviato da Doctorvisual e può essere inviato per e-mail insieme ai termini e condizioni di vendita. I dettagli relativi agli ordini più recenti sono disponibili nell'area personale di ciascun cliente.</p>
+            <p>Gli utenti sono liberi di cancellare la loro iscrizione al servizio di newsletter in qualsiasi momento, cliccando sul link "unsubscribe" presente in ogni mail promozionale.</p>
+            <p><strong>MODALITÀ DEL TRATTAMENTO</strong> <br>
+              I dati personali sono trattati con strumenti automatizzati, con logiche strettamente correlate alle finalità stesse, per il tempo strettamente necessario a conseguire gli scopi per cui sono stati raccolti o al rispetto di eventuali adempimenti di legge. Specifiche misure di sicurezza sono osservate per prevenire la perdita dei dati, usi illeciti o non corretti e accessi non autorizzati. Le informazioni raccolte sono registrate in un ambiente sicuro.</p>
+            <p><strong>AMBITO DI COMUNICAZIONE DEI DATI</strong> <br>
+              I dati personali non saranno oggetto di diffusione e potranno essere comunicati in Italia o in altri Paesi UE nell’ambito delle finalità di cui sopra, a soggetti terzi che agiscano per conto o in nome di Doctorvisual, quali i soggetti incaricati di curare la consegna dei prodotti, istituti di credito, nostri consulenti legali e fiscali, outsourcers, ecc. <br>
+              Per le finalità suindicate i dati potranno venire a conoscenza di personale incaricato di Doctorvisual o dai suoi responsabili del trattamento. <br>
+              Il responsabile del trattamento per Doctorvisual è da identificarsi nella figura del Direttore Commerciale. Un elenco aggiornato dei responsabili del trattamento è disponibile presso la sede della società.</p>
+            <p><strong>DIRITTI DELL’INTERESSATO</strong><br>
+              La informiamo che il Codice Privacy Le conferisce l'esercizio di specifici diritti. <br>
+              In particolare, in ogni momento, Lei può ottenere: a) la conferma dell'esistenza o meno di dati personali che la riguardano, anche se non ancora registrati, e la loro comunicazione in forma intelligibile; b) l'indicazione dell'origine dei dati personali, delle finalità e modalità del trattamento nonché della logica applicata in caso di trattamento effettuato con l'ausilio di strumenti elettronici; c) l'indicazione degli estremi identificativi del titolare e dei responsabili nonché dei soggetti o delle categorie di soggetti ai quali i dati personali possono essere comunicati o che possono venirne a conoscenza; d) l'aggiornamento, la rettificazione, l'integrazione dei dati, nonché la cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione di legge, compresi quelli di cui non è necessaria la conservazione in relazione agli scopi per i quali i dati sono stati raccolti o successivamente trattati; e) l'attestazione che le operazioni di cui alla lettera d) sono state portate a conoscenza, anche per quanto riguarda il loro contenuto, di coloro ai quali i dati sono stati comunicati, eccettuato il caso in cui tale adempimento si rivela impossibile o comporta un impiego di mezzi manifestamente sproporzionato rispetto al diritto tutelato. L'interessato, ai sensi dell'art. 7 del Codice Privacy, ha diritto altresì di opporsi, per motivi legittimi, al trattamento dei dati personali, anche se pertinenti allo scopo della raccolta, nonché al trattamento di dati personali a fini di invio di comunicazioni promozionali o per le altre finalità per le quali ha rilasciato il consenso.</p>
+            <p>Tutti questi diritti possono essere esercitati inviando comunicazione a Lab15 Srl,  via Gori 10 - 30010 Lughetto fraz. di Campagna Lupia (VE), tel. 049 09 98 102, e-mail <a href="mailto:sales@lab15.it">sales@lab15.it</a></p>
+            <p>Cookies Policy di Doctorvisual</p>
+            <p>Doctorvisual utilizza cookie per fornire servizi che migliorino l’esperienza di navigazione degli utenti.<br>
+              <br>
+              Come utilizziamo i cookie:<br>
+              • Utilizziamo cookie di navigazione anonimi, necessari per consentire agli utenti di navigare correttamente su Doctorvisual, utilizzare tutte le funzionalità ed accedere ad aree sicure.<br>
+              • Utilizziamo cookie analitici per capire meglio come i nostri utenti utilizzano il sito web, per ottimizzare e migliorare il sito, rendendolo sempre interessante e rilevante per gli utenti. <br>
+              Queste informazioni sono anonime, e utilizzate solo a fini statistici. <br>
+              Utilizziamo i cookie commerciali anonimi per mostrarti le nostre pubblicità su altri siti web, in base ai prodotti che hai visualizzato nelle navigazioni precedenti. Questi cookie vengono solitamente inseriti da parti terze di fiducia (come Google attraverso il remarketing per la pubblicità display), tuttavia, Doctorvisual non consente a tali società di raccogliere informazioni personali relative agli utenti. Ciò significa che sarà garantito l'anonimato e i dati personali non verranno usati da altri siti web o database di marketing.<br>
+              Come modificare o disattivare le preferenze dei cookie<br>
+              • Dalle impostazioni del tuo browser (Internet Explorer, Safari, Firefox, Chrome ecc..) potrai stabilire quali sono i cookie che desideri ricevere e quali no. Per sapere dove puoi trovare suddette impostazioni, utilizza il tasto "Help" del tuo browser.<br>
+              • I visitatori possono disattivare Google Analytics per la pubblicità display e personalizzare gli annunci della Rete Display di Google utilizzando la Gestione preferenze annunci.<br>
+              • Per disattivare i cookie di parti terze che consentono la personalizzazione della pubblicità in funzione del comportamento sul sito web puoi visitare i siti <a target="_blank" href="http://www.networkadvertising.org/">www.networkadvertising.org</a> e <a target="_blank" href="http://www.youronlinechoices.com/">www.youronlinechoices.com</a> per identificare i membri NAI ( (Network Advertising Initiative) che hanno inserito cookie pubblicitari sul tuo computer.<br>
+              Per usufruire della funzione opt-out dal programma di pubblicità comportamentale di un membro NAI o IAB, spunta la casella corrispondente alla compagnia che desideri escludere. </p>
+          </div>
+          <div class="clearfix"></div>
+          <div class="radio col-lg-2 col-md-2 col-sm-2">
+            <label>{{ form.privacy }} Accetto </label>
+          </div>
+          <!--div class="radio col-lg-2 col-md-2 col-sm-2">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+              Non Accetto</label>
+          </div-->
+          <div class="clearfix"></div>
+          <h5>Informativa Newsletter</h5>
+          <p>Ricevendo la newsletter di Doctorvisual potrai conoscere tutte le migliori offerte ed essere sempre aggiornato sulle nostre novità.</p>
+          <div class="clearfix"></div>
+          <div class="radio col-lg-2 col-md-2 col-sm-2">
+            <label>
+              {{ form.newsletter }} Iscrivimi
+              <!--input type="radio" name="optionsRadios2" id="optionsRadios1" value="option1" -->
+              </label>
+          </div>
+          <!--div class="radio col-lg-2 col-md-2 col-sm-2">
+            <label>
+              <input type="radio" name="optionsRadios2" id="optionsRadios2" value="option2">
+              Non Accetto</label>
+          </div>
+          <div class="clearfix"></div>
+        </div-->
+        <button type="submit" class="btn btn-default col-lg-3 col-md-3 col-sm-3 col-lg-offset-9 col-md-offset-9 col-sm-offset-9">Registrati</button>
+      </div>
+    </form>
+    </section>
+   </div>
+    <!--Fine Modulo Registrazione-->
+  </div>
+</div>
+
+{% endblock %}

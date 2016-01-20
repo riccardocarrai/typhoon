@@ -1,0 +1,75 @@
+{% extends "doc_base.html" %}
+{% load staticfiles %}
+
+    <!-- Fine blocco menu principale -->
+   {% block slider %}
+    <div class="col-lg-9 col-md-9 col-sm-9 main-content">
+      <div class="row main-content"> 
+        <!-- Blocco slider -->
+        <div class="col-lg-9 col-md-9 col-sm-9 slider">
+          <div id="carousel_fade" class="carousel slide carousel-fade"> 
+            <!-- Indicators --> 
+            <!--<ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>--> 
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              {% for i in slider %}
+              <div class="item active"> <img src="{% static "media/" %}{{ i.image }}" alt="...">
+                <div class="carousel-caption">
+                  <h3>{{ i.titolo }}</h3>
+                  <p>{{ i.didascalia }}</p>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+            <!-- Controls --> 
+            <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>--> </div>
+        </div>
+   {% endblock %}
+        <!-- Fine blocco slider -->
+      {% block adv %}
+        <!-- Blocco pulsanti adv -->
+        <div class="col-lg-3 col-md-3 col-sm-3 adv-bottom"> {% for i in adv %} <a href="{{ i.url }}"><img src="{% static "media/" %}{{ i.image }}"></a>{% endfor %}</div>
+        <!-- Fine blocco pulsanti adv -->
+      {% endblock %}
+      {% block sottoslider %}
+        <div class="clearfix"></div>
+        <!-- Blocco sotto slider -->
+        <div class="col-lg-6 col-md-6 col-sm-6 grafica"> <a href="#">Non hai la grafica?<br/>
+          Affidati a noi</a> </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 recensioni"> <img src="{% static "images/index.jpg" %}" /> </div>
+        <!-- Fine blocco sotto slider -->
+      </div>
+      {% endblock %}
+      <!-- Pulsanti materiali -->
+    {% block mainblock %}
+      <div class="row main-content prodotti">
+        <h2 class="text-left">Materiali</h2>
+        <!-- Pulsante singolo prodotto -->
+        {% for i in button %}
+                {% if i.image %}
+                    <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "media" %}{{ i.image }})">
+                {% else %}
+                    <div class="col-lg-3 col-md-3 col-sm-3 prodotto" style="background:url({% static "images/no-photo.png" %})">
+                {% endif %}
+                <a href="{{ i.Componenti|lower|slugify}}">
+                <h5>{{ i.Componenti}}</h5>
+                <img class="acquista" src="{% static "images/bottom-product.png" %}" alt="Acquista" title="Nome Prodotto" /> </a> </div>
+      {% endfor %}
+          <!-- Fine pulsante singolo prodotto -->
+      </div>
+
+      <!-- Fine pulsanti prodotti --> 
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- jQuery e plugin JavaScript  -->
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+{% load widget_tweaks %}
+{% if  tipo == 'Societa' %}
+<h5 id="intestazione-sezione-fatturazione">Dati di fatturazione</h5>
+<div class="row uno a">
+    <label class="col-lg-3 col-md-3 col-sm-3">Ragione Sociale</label>
+    {% if form.tipo %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.tipo.label }}</label>
+    {% else %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.codice_fiscale.label }}</label>{% endif %}
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.partita_iva.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.denominazione|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+    {% if form.tipo %}{{ form.tipo|add_class:"class':'btn btn-default  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% else %}{{ form.codice_fiscale|add_class:"class:   col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}{% endif %}
+    {{ form.partita_iva|add_class:"  col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+</div>
+{% endif %}
+{% if tipo == 'Privato' %}
+<h5 id="intestazione-sezione-fatturazione">Dati di fatturazione</h5>
+<div class="row uno b">
+    <label class="col-lg-3 col-md-3 col-sm-3">{{ form.cognome.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.nome.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.codice_fiscale.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.cognome|add_class:" col-lg-3 col-md-3 col-sm-3" }}
+    {{ form.nome|add_class:" col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+    {{ form.codice_fiscale|add_class:"  col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+</div>
+{% endif %}
+{% if tipo == 'Ditta' %}
+<h5 id="intestazione-sezione-fatturazione">Dati di fatturazione</h5>
+<div class="row uno c">
+    <label class="col-lg-3 col-md-3 col-sm-3">{{ form.cognome.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.nome.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.denominazione.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.cognome|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+    {{ form.nome|add_class:"  col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+    {{ form.denominazione|add_class:" col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+</div>
+{% endif %}
+{% if tipo == 'Associazione' %}
+<h5 id="intestazione-sezione-fatturazione">Dati di fatturazione</h5>
+<div class="row uno d">
+    <label class="col-lg-3 col-md-3 col-sm-3">{{ form.denominazione.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.codice_fiscale.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.partita_iva.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.denominazione|add_class:" col-lg-3 col-md-3 col-sm-3" }}
+    {{ form.codice_fiscale|add_class:"  col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+    {{ form.partita_iva|add_class:"  col-lg-3 col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1" }}
+</div>
+{% endif %}
+{% if tipo == 'Societa' %}
+<div class="row due a">
+    {% if form.tipo %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.codice_fiscale.label }}</label>
+    {% else %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.indirizzo.label }}</label>{% endif %}
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.provincia.label }}</label>
+                            <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.localita.label }}</label>
+    {% else %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.localita.label }}</label>
+              <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label>{% endif %}
+    <div class="clearfix"></div>
+    {% if form.tipo %}{{ form.codice_fiscale|add_class:" col-lg-3 col-md-3 col-sm-3" }}
+    {% else %}{{ form.indirizzo|add_class:" col-lg-3 col-md-3 col-sm-3" }}{% endif %}
+    {% if form.provincia %}{{ form.provincia|add_class:"btn btn-default  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+                            {{ form.localita|add_class:" col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% else %}{{ form.localita|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+              {{ form.cap|add_class:" col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}{% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Privato' %}
+<div class="row due b">
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.provincia.label }}</label>
+                            <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.localita.label }}</label>
+                            <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.indirizzo.label }}</label>
+    {% else %}
+                <label class="col-lg-3 col-md-3 col-sm-3">{{ form.localita.label }}</label>
+                <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.indirizzo.label }}</label>
+               <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label>
+    <div class="clearfix"></div>{% endif %}
+    {% if form.provincia %}{{ form.provincia|add_class:"btn btn-default  col-lg-3 col-md-3 col-sm-3" }}
+                           {{ form.localita|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+                           {{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% else %}
+                           {{ form.localita|add_class:" col-lg-3 col-md-3 col-sm-3" }}
+                           {{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+                           {{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+        {% endif %}
+{% endif %}
+{% if tipo == 'Ditta' %}
+<div class="row due c">
+    <label class="col-lg-3 col-md-3 col-sm-3">{{ form.partita_iva.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.codice_fiscale.label }}</label>
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.provincia.label }}</label>
+    {% else %} <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label> {% endif %}
+    <div class="clearfix"></div>
+    {{ form.partita_iva|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+    {{ form.codice_fiscale|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% if form.provincia %}{{ form.provincia|add_class:"btn btn-default  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% else %} {{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}{% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Associazione' %}
+<div class="row due d">
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.provincia.label }}</label>
+                           <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.localita.label }}</label>
+                           <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.indirizzo.label }}</label>
+    {% else %}
+                           <label class="col-lg-3 col-md-3 col-sm-3">{{ form.localita.label }}</label>
+                           <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.indirizzo.label }}</label>
+                           <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label>
+    {% endif %}
+    <div class="clearfix"></div>
+    {% if form.provincia %}
+                            {{ form.provincia|add_class:"btn btn-default  col-lg-3 col-md-3 col-sm-3" }}
+                            {{ form.localita|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+                            {{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% else %}
+                            {{ form.localita|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+                            {{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+                            {{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Societa' %}
+<div class="row tre a">
+    {% if form.tipo %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.indirizzo.label }}</label>
+                      {% if form.provincia %} <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label>{% endif %}
+    {% else %}{% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.cap.label }}</label>{% endif %}{% endif %}
+    <div class="clearfix"></div>
+    {% if form.tipo %}{{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+                      {% if form.provincia %}{{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}{% endif %}
+    {% else %}{% if form.provincia %}{{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3" }}{% endif %}{% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Privato' %}
+<div class="row tre b">
+   {% if form.provincia %} <label class="col-lg-3 col-md-3 col-sm-3">{{ form.cap.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3" }}{% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Ditta' %}
+<div class="row tre c">
+    <label class="col-lg-3 col-md-3 col-sm-3">{{ form.localita.label }}</label>
+    <label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.indirizzo.label }}</label>
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">{{ form.cap.label }}</label>{% endif %}
+    <div class="clearfix"></div>
+    {{ form.localita|add_class:"  col-lg-3 col-md-3 col-sm-3" }}
+    {{ form.indirizzo|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}
+    {% if form.provincia %}{{ form.cap|add_class:"  col-lg-3 col-md-3 col-sm-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1" }}{% endif %}
+</div>
+{% endif %}
+{% if tipo == 'Associazione' %}
+<div class="row tre d">
+    {% if form.provincia %}<label class="col-lg-3 col-md-3 col-sm-3">{{ form.cap.label }}</label>
+    <div class="clearfix"></div>
+    {{ form.cap|add_class:" col-lg-3 col-md-3 col-sm-3" }}
+     {% endif %}
+</div>
+{% endif %}
